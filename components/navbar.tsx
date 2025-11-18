@@ -35,7 +35,7 @@ export default function Navbar() {
         >
           <div className="w-14 h-14 relative">
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/outdoor-kYkvPB54FjLEdfoY6CMtc9P4jieOaW.jpg"
+              src="https://cdn.builder.io/api/v1/image/assets%2F37fe508629794307b44d873859aad7cf%2Fef689bf59abe4107b56960b1072dd988?format=webp&width=800"
               alt="Outdoor Greatness Logo"
               className="w-full h-full object-contain drop-shadow-xl"
               style={{ filter: 'drop-shadow(0 0 20px rgba(255, 193, 7, 0.3))' }}
