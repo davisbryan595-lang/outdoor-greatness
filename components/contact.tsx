@@ -85,7 +85,7 @@ export default function Contact() {
 
           {/* Main Form Container - Parchment style */}
           <div
-            className="relative p-10 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative p-6 sm:p-8 md:p-10 rounded-2xl overflow-hidden shadow-2xl"
             style={{
               background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
               boxShadow: '0 0 60px rgba(139, 90, 43, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
