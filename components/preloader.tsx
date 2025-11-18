@@ -1,47 +1,36 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 
 export default function Preloader() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [shouldRender, setShouldRender] = useState(true)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false)
+      setShouldRender(false)
     }, 2500)
 
     return () => clearTimeout(timer)
   }, [])
 
-  if (!isVisible) {
+  if (!shouldRender) {
     return null
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6 }}
-      className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center"
-    >
+    <div className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center">
       <div className="relative w-40 h-40">
         {/* Rotating sun */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-0 rounded-full bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-2xl"
+        <div
+          className="absolute inset-0 rounded-full bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-2xl animate-spin"
           style={{
             boxShadow: '0 0 60px rgba(255, 193, 7, 0.8)',
+            animationDuration: '3s',
           }}
         />
 
         {/* Pulsing rays */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute inset-0 rounded-full border-4 border-yellow-500 opacity-30"
-        />
+        <div className="absolute inset-0 rounded-full border-4 border-yellow-500 opacity-30 animate-pulse" />
 
         {/* Tree silhouette */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -57,14 +46,10 @@ export default function Preloader() {
         </div>
 
         {/* Text animation */}
-        <motion.div
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-gold-yellow text-sm font-bebas tracking-wider"
-        >
+        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-yellow-500 text-sm font-bebas tracking-wider opacity-70">
           GROWING YOUR OUTDOOR GREATNESS
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
