@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-yellow-700/20 pt-8 mb-6" />
+        <div className="border-t border-yellow-700/20 pt-6 sm:pt-8 mb-4 sm:mb-6" />
 
         {/* Bottom */}
         <motion.div
