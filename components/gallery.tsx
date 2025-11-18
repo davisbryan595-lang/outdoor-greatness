@@ -113,12 +113,12 @@ export default function Gallery() {
                 className="group relative overflow-hidden rounded-xl"
               >
                 {/* Gallery Item */}
-                <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 border border-yellow-500/20 rounded-xl overflow-hidden shadow-3d group-hover:shadow-3d transition-all duration-500">
+                <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 border border-emerald-500/20 rounded-xl overflow-hidden shadow-3d group-hover:shadow-3d transition-all duration-500">
                   {/* Placeholder with gradient */}
-                  <div className="w-full h-full bg-gradient-to-br from-green-900/30 via-slate-900 to-yellow-900/20 flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 via-slate-900 to-yellow-900/30 flex items-center justify-center">
                     <div className="text-center">
                       <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
-                      <p className="text-yellow-500/60 text-sm">{item.category}</p>
+                      <p className="text-emerald-400/60 text-sm">{item.category}</p>
                     </div>
                   </div>
 
