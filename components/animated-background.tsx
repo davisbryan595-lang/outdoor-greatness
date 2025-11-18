@@ -61,7 +61,6 @@ function ParticleField() {
       </points>
       <Stars radius={100} depth={50} count={1000} factor={4} saturation={0.7} />
       <Environment preset="forest" />
-      <Fog attach="fog" args={['#0f1419', 30, 100]} />
     </group>
   )
 }
