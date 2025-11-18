@@ -10,36 +10,42 @@ const galleryItems = [
     category: 'Trees',
     title: 'Mature Oak Removal',
     description: 'Professional removal of 80-year-old oak tree',
+    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f9cc66?w=800&h=600&fit=crop',
   },
   {
     id: 2,
     category: 'Landscapes',
     title: 'Modern Garden Design',
     description: 'Contemporary landscape with hardscaping',
+    image: 'https://images.unsplash.com/photo-1585320817134-41ddce3fbe51?w=800&h=600&fit=crop',
   },
   {
     id: 3,
     category: 'Before-After',
     title: 'Transformation',
     description: 'Complete yard renovation project',
+    image: 'https://images.unsplash.com/photo-1563241527-3004b6b7d358?w=800&h=600&fit=crop',
   },
   {
     id: 4,
     category: 'Trees',
     title: 'Crown Pruning',
     description: 'Precision pruning for health and aesthetics',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
   },
   {
     id: 5,
     category: 'Landscapes',
     title: 'Hardscape Installation',
     description: 'Paver patio with garden borders',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
   },
   {
     id: 6,
     category: 'Before-After',
     title: 'Storm Recovery',
     description: 'Post-storm cleanup and restoration',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop',
   },
 ]
 
