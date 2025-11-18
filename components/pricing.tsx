@@ -239,12 +239,12 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 md:mt-20 text-center px-4"
         >
-          <p className="text-lg text-yellow-300 font-bebas tracking-widest" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-yellow-300 font-bebas tracking-widest" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             🌲 FREE ESTIMATES FOR ALL PROJECTS 🌲
           </p>
-          <p className="text-sm text-gray-300 mt-2">Contact us today for a professional assessment</p>
+          <p className="text-xs sm:text-sm text-gray-300 mt-2">Contact us today for a professional assessment</p>
         </motion.div>
       </motion.div>
     </section>
