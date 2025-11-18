@@ -123,3 +123,82 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 3D Wooden Look Styles */
+@layer components {
+  .wooden-card {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      135deg,
+      #8b6f47 0%,
+      #a0826d 25%,
+      #7a5c3b 50%,
+      #9d7e5d 75%,
+      #8b6f47 100%
+    );
+    background-size: 400% 400%;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+    border: 1px solid #6b5444;
+  }
+
+  .wooden-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      );
+    pointer-events: none;
+  }
+
+  .wooden-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .wooden-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .wooden-3d:hover {
+    transform: rotateX(2deg) rotateY(-5deg) translateZ(20px);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.9),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .wood-texture {
+    position: relative;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px, 50px 50px, 34px 34px, 34px 34px, 1300px 53px;
+    background-position: 0 0, 10px 10px, 0 0, 10px 10px, 0 0;
+  }
+}
