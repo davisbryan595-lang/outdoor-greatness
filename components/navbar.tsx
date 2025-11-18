@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import WoodenButton from '@/components/WoodenButton'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -21,55 +21,66 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className={`fixed w-full top-0 z-40 transition-all duration-500 ${
+      className={`fixed w-full top-0 z-40 transition-all duration-500 pointer-events-auto ${
         isScrolled
-          ? 'bg-black/60 backdrop-blur-lg border-b border-emerald-500/20 shadow-3d'
+          ? 'bg-black/40 backdrop-blur-lg'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 cursor-pointer"
+          whileHover={{ scale: 1.08 }}
+          className="flex items-center gap-3 cursor-pointer"
         >
-          <div className="w-12 h-12 relative">
+          <div className="w-14 h-14 relative">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/outdoor-kYkvPB54FjLEdfoY6CMtc9P4jieOaW.jpg"
               alt="Outdoor Greatness Logo"
-              className="w-full h-full object-contain drop-shadow-lg"
+              className="w-full h-full object-contain drop-shadow-xl"
+              style={{ filter: 'drop-shadow(0 0 20px rgba(255, 193, 7, 0.3))' }}
             />
           </div>
-          <span className="hidden md:block font-bebas text-lg tracking-widest text-white">OUTDOOR</span>
+          <div className="hidden md:block">
+            <h1 className="font-bebas text-xl tracking-widest text-white" style={{ textShadow: '0 0 20px rgba(255, 193, 7, 0.3)' }}>
+              OUTDOOR
+            </h1>
+            <p className="text-xs text-yellow-400 tracking-widest">GREATNESS</p>
+          </div>
         </motion.div>
 
-        {/* Links */}
-        <div className="hidden md:flex gap-8">
+        {/* Links - Wooden Signs style */}
+        <div className="hidden md:flex gap-6 items-center">
           {['Home', 'Services', 'Gallery', 'Pricing', 'Contact'].map((link) => (
             <motion.a
               key={link}
               href={`#${link.toLowerCase()}`}
-              whileHover={{ color: '#FFC107' }}
+              whileHover={{
+                scale: 1.1,
+                color: '#FFD700',
+                textShadow: '0 0 20px rgba(255, 193, 7, 0.8)',
+              }}
               transition={{ duration: 0.2 }}
-              className="text-white hover:text-yellow-400 transition-colors text-sm font-medium tracking-wide"
+              className="relative font-bebas tracking-widest text-sm text-yellow-400"
+              style={{
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
+              }}
             >
               {link}
+              <motion.div
+                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-500"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.3 }}
+              />
             </motion.a>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.a
-          href="tel:781-732-8301"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: '0 0 30px rgba(255, 193, 7, 0.6)',
-          }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-2 bg-yellow-500 text-black font-bold text-sm rounded-full shadow-lg hover:shadow-xl transition-all tracking-wide"
-        >
+        {/* CTA Button - Wooden Style */}
+        <WoodenButton href="tel:781-732-8301" size="sm">
           CALL 781-732-8301
-        </motion.a>
+        </WoodenButton>
       </div>
     </motion.nav>
   )

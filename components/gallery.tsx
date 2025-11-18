@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
 
 const galleryItems = [
   {
@@ -53,14 +52,18 @@ const filters = ['All', 'Trees', 'Landscapes', 'Before-After']
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [selectedId, setSelectedId] = useState<number | null>(null)
 
   const filteredItems = activeFilter === 'All'
     ? galleryItems
-    : galleryItems.filter(item => item.category === activeFilter)
+    : galleryItems.filter((item) => item.category === activeFilter)
+
+  const selectedItem = galleryItems.find((item) => item.id === selectedId)
 
   return (
-    <section id="gallery" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-900/50 z-0" />
+    <section id="gallery" className="relative py-32 px-4 overflow-visible min-h-screen">
+      {/* Background gradient for forest depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -70,14 +73,26 @@ export default function Gallery() {
       >
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-400">OUR</span> <span className="text-green-400">PORTFOLIO</span>
+          <h2
+            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            style={{
+              background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              filter: 'drop-shadow(0 0 20px rgba(255, 193, 7, 0.3))',
+            }}
+          >
+            OUR PORTFOLIO
           </h2>
+          <p className="text-gray-300 text-lg tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+            Pinned memories in the forest
+          </p>
         </motion.div>
 
         {/* Filters */}
@@ -85,79 +100,166 @@ export default function Gallery() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center gap-4 mb-12 flex-wrap"
+          className="flex justify-center gap-4 mb-16 flex-wrap"
         >
           {filters.map((filter) => (
             <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-6 py-2 font-bebas tracking-wider rounded-lg transition-all ${
+              className={`px-6 py-3 font-bebas tracking-widest rounded-lg transition-all ${
                 activeFilter === filter
-                  ? 'bg-gradient-to-r from-yellow-400 to-emerald-400 text-black shadow-lg shadow-yellow-400/50'
-                  : 'border border-emerald-500/30 text-emerald-400 hover:border-emerald-500/60'
+                  ? 'text-black shadow-lg'
+                  : 'text-yellow-400 border border-yellow-500/40'
               }`}
+              style={
+                activeFilter === filter
+                  ? {
+                      background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
+                      boxShadow: '0 0 30px rgba(255, 193, 7, 0.5)',
+                    }
+                  : {}
+              }
             >
               {filter}
             </motion.button>
           ))}
         </motion.div>
 
-        {/* Gallery Grid */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
+        {/* Gallery Grid - Polaroid Style */}
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+          <AnimatePresence mode="wait">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                exit={{ opacity: 0, scale: 0.5 }}
                 transition={{ duration: 0.4 }}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-xl"
+                onClick={() => setSelectedId(item.id)}
+                className="cursor-pointer w-full max-w-xs"
               >
-                {/* Gallery Item */}
-                <div className="wooden-3d relative h-64 rounded-xl overflow-hidden transition-all duration-500 wooden-card">
-                  {/* Image */}
-                  {item.image && (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                  {!item.image && (
-                    <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 via-slate-900 to-yellow-900/30 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
-                        <p className="text-emerald-400/60 text-sm">{item.category}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Overlay */}
+                {/* Polaroid Card */}
+                <motion.div
+                  whileHover={{
+                    rotateZ: item.id % 2 === 0 ? 2 : -2,
+                    y: -10,
+                  }}
+                  className="relative"
+                  style={{ perspective: '1200px' }}
+                >
+                  {/* Polaroid frame */}
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-6"
+                    className="bg-white rounded-lg overflow-hidden shadow-2xl"
+                    style={{
+                      boxShadow: '0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                    }}
                   >
-                    <h3 className="font-bebas text-xl tracking-wider text-yellow-300 mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm">{item.description}</p>
+                    {/* Image container */}
+                    <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Polaroid white space with text */}
+                    <div className="p-4 bg-white">
+                      <h3 className="font-bebas text-lg text-gray-800 tracking-widest mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-gray-600 mb-2">{item.description}</p>
+                      <p className="text-xs text-yellow-600 font-semibold">{item.category}</p>
+                    </div>
                   </motion.div>
 
-                  {/* Pin shadow effect */}
-                  <div className="absolute top-3 left-3 w-3 h-3 bg-gray-600 rounded-full shadow-lg" />
-                </div>
+                  {/* Push pins - top left and top right */}
+                  <motion.div
+                    className="absolute -top-3 left-6 w-4 h-4 bg-red-500 rounded-full shadow-lg"
+                    style={{
+                      boxShadow: '0 2px 8px rgba(220, 38, 38, 0.6), inset -1px -1px 2px rgba(0, 0, 0, 0.2)',
+                    }}
+                    whileHover={{ scale: 1.2 }}
+                  />
+                  <motion.div
+                    className="absolute -top-3 right-6 w-4 h-4 bg-yellow-500 rounded-full shadow-lg"
+                    style={{
+                      boxShadow: '0 2px 8px rgba(234, 179, 8, 0.6), inset -1px -1px 2px rgba(0, 0, 0, 0.2)',
+                    }}
+                    whileHover={{ scale: 1.2 }}
+                  />
+
+                  {/* Shadow under card */}
+                  <motion.div
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 w-32 h-6 pointer-events-none"
+                    style={{
+                      background: 'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, transparent 70%)',
+                      filter: 'blur(8px)',
+                    }}
+                  />
+                </motion.div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
       </motion.div>
+
+      {/* Lightbox - Enlarged Photo */}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedId(null)}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.5, z: -100 }}
+              animate={{ scale: 1, z: 100 }}
+              exit={{ scale: 0.5, z: -100 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full"
+            >
+              <div
+                className="bg-white rounded-lg overflow-hidden shadow-2xl"
+                style={{
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.9)',
+                }}
+              >
+                <div className="relative h-96 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+                  <img
+                    src={selectedItem.image}
+                    alt={selectedItem.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="p-6 bg-white">
+                  <h2 className="font-bebas text-2xl text-gray-800 tracking-widest mb-2">
+                    {selectedItem.title}
+                  </h2>
+                  <p className="text-gray-700 mb-3">{selectedItem.description}</p>
+                  <p className="text-sm text-yellow-600 font-semibold">{selectedItem.category}</p>
+                </div>
+
+                {/* Close button */}
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setSelectedId(null)}
+                  className="absolute -top-4 -right-4 w-10 h-10 bg-yellow-500 rounded-full text-black font-bold flex items-center justify-center shadow-lg"
+                >
+                  ✕
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

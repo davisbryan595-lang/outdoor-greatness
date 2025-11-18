@@ -10,6 +10,7 @@ import Pricing from '@/components/pricing'
 import Contact from '@/components/contact'
 import Footer from '@/components/footer'
 import Preloader from '@/components/preloader'
+import ForestAmbience from '@/components/ForestAmbience'
 
 const AnimatedBackground = dynamic(() => import('@/components/animated-background'), {
   ssr: false,
@@ -25,9 +26,10 @@ export default function Home() {
           <AnimatedBackground />
         </Suspense>
       </div>
-      
+
       <div className="relative z-10">
         <Navbar />
+        <ForestAmbience />
         <Hero />
         <Services />
         <Gallery />

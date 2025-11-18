@@ -2,183 +2,234 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Canvas } from '@react-three/fiber'
-import { useGLTF, Environment, Lightformer, Text, Stars } from '@react-three/drei'
-import * as THREE from 'three'
+import WoodenButton from '@/components/WoodenButton'
 
-function FloatingSign() {
-  const groupRef = useRef<THREE.Group>(null)
-
-  useEffect(() => {
-    if (!groupRef.current) return
-
-    let angle = 0
-    const animate = () => {
-      angle += 0.01
-      if (groupRef.current) {
-        groupRef.current.rotation.y = Math.sin(angle * 0.5) * 0.3
-        groupRef.current.position.y = Math.sin(angle * 0.5) * 0.5
-      }
-      requestAnimationFrame(animate)
-    }
-
-    animate()
-  }, [])
-
-  return (
-    <group ref={groupRef}>
-      <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[3, 2, 0.3]} />
-        <meshPhysicalMaterial
-          color="#8B5A2B"
-          roughness={0.8}
-          metalness={0.2}
-        />
-      </mesh>
-      
-      {/* Text component removed due to missing font file */}
-    </group>
-  )
-}
-
-function HeroScene() {
-  return (
-    <Canvas camera={{ position: [0, 5, 15], fov: 50 }}>
-      <color attach="background" args={['#0f1419']} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 20, 10]} intensity={1.5} castShadow />
-      <pointLight position={[-10, 10, -10]} intensity={0.8} color="#FFC107" />
-      
-      <Stars radius={100} depth={50} count={500} factor={3} />
-      <Environment preset="sunset" />
-      
-      <FloatingSign />
-    </Canvas>
-  )
-}
-
-interface Particle {
+interface FloatingParticle {
   id: number
-  startX: number
-  startY: number
+  x: number
+  y: number
   duration: number
-  endY: number
+  delay: number
 }
 
 export default function Hero() {
-  const [particles, setParticles] = useState<Particle[]>([])
-  const [isMounted, setIsMounted] = useState(false)
+  const [particles, setParticles] = useState<FloatingParticle[]>([])
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setIsMounted(true)
     const width = typeof window !== 'undefined' ? window.innerWidth : 800
     const height = typeof window !== 'undefined' ? window.innerHeight : 600
 
-    const particleArray: Particle[] = Array.from({ length: 10 }, (_, i) => ({
+    const particleArray: FloatingParticle[] = Array.from({ length: 15 }, (_, i) => ({
       id: i,
-      startX: Math.random() * width,
-      startY: Math.random() * height,
-      duration: Math.random() * 3 + 5,
-      endY: height + 100,
+      x: Math.random() * width,
+      y: Math.random() * (height * 0.5) + height * 0.25,
+      duration: Math.random() * 4 + 6,
+      delay: Math.random() * 2,
     }))
 
     setParticles(particleArray)
   }, [])
 
-  return (
-    <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* 3D Canvas Background */}
-      <div className="absolute inset-0 z-0">
-        <HeroScene />
-      </div>
+  const titleVariants = {
+    hidden: { opacity: 0, scale: 0.5, rotateX: 90 },
+    visible: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        delay: i * 0.1 + 0.5,
+        duration: 0.8,
+        type: 'spring',
+        stiffness: 100,
+      },
+    }),
+  }
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-slate-950 z-5" />
+  return (
+    <div
+      id="home"
+      ref={containerRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 z-5 pointer-events-none" />
 
       {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative z-10 text-center px-4 max-w-4xl"
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="relative z-10 text-center px-4 max-w-6xl"
       >
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="font-bebas text-6xl md:text-8xl tracking-wider mb-4 text-white"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #84cc16, #fbbf24)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 60px rgba(132, 204, 22, 0.3)',
-            filter: 'drop-shadow(0 0 30px rgba(132, 204, 22, 0.2))',
-          }}
-        >
-          OUTDOOR GREATNESS
-        </motion.h1>
+        {/* Main Title with 3D effect */}
+        <div className="mb-8 perspective">
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            className="font-bebas text-7xl md:text-9xl tracking-widest font-bold leading-tight mb-4"
+            style={{
+              background: 'linear-gradient(135deg, #84cc16 0%, #fbbf24 50%, #FFC107 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              filter: 'drop-shadow(0 0 40px rgba(132, 204, 22, 0.4)) drop-shadow(0 10px 40px rgba(255, 193, 7, 0.2))',
+              textShadow: '0 0 60px rgba(132, 204, 22, 0.2)',
+            }}
+          >
+            <motion.span custom={0} variants={titleVariants}>
+              OUTDOOR
+            </motion.span>
+            <br />
+            <motion.span custom={1} variants={titleVariants}>
+              GREATNESS
+            </motion.span>
+          </motion.h1>
+        </div>
 
-        <motion.p
+        {/* Subtitle */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-lg md:text-2xl text-gray-300 mb-8 font-light tracking-wider"
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mb-12"
         >
-          Landscaping & Tree Service Excellence
-        </motion.p>
+          <p
+            className="text-xl md:text-3xl text-gray-200 font-light tracking-widest mb-2"
+            style={{
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
+            }}
+          >
+            Landscaping & Tree Service
+          </p>
+          <p className="text-sm md:text-lg text-yellow-300 tracking-widest">
+            EXPERT CARE FOR YOUR OUTDOOR SPACE
+          </p>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
+        >
+          <WoodenButton href="#gallery" size="lg">
+            VIEW OUR WORK
+          </WoodenButton>
+
+          <WoodenButton href="#contact" size="lg">
+            GET FREE ESTIMATE
+          </WoodenButton>
+        </motion.div>
+
+        {/* Floating Phone Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1.5, type: 'spring' }}
+          className="relative inline-block"
         >
           <motion.a
-            href="#gallery"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 193, 7, 0.6)' }}
+            href="tel:781-732-8301"
+            whileHover={{ scale: 1.1, rotateY: 10 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-yellow-500 text-black font-bebas tracking-wider text-lg rounded-lg shadow-lg hover:shadow-xl transition-all"
+            className="relative flex items-center gap-3 px-8 py-4 rounded-full font-bebas tracking-widest text-lg"
+            style={{
+              background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
+              color: '#FFD700',
+              boxShadow: `
+                0 0 40px rgba(255, 193, 7, 0.5),
+                0 0 80px rgba(255, 193, 7, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2)
+              `,
+              border: '2px solid rgba(255, 193, 7, 0.4)',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.7)',
+            }}
           >
-            VIEW OUR WORK
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+              className="w-6 h-6 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, #FFD700 0%, #FFC107 100%)',
+                boxShadow: '0 0 15px rgba(255, 193, 7, 0.8)',
+              }}
+            />
+            <span>CALL NOW</span>
+            <span className="hidden sm:inline">781-732-8301</span>
           </motion.a>
 
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05, borderColor: '#FFC107' }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 border-yellow-500 text-yellow-400 font-bebas tracking-wider text-lg rounded-lg hover:bg-yellow-500/10 transition-all"
-          >
-            GET FREE ESTIMATE
-          </motion.a>
+          {/* Glowing ring effect */}
+          <motion.div
+            animate={{
+              boxShadow: [
+                '0 0 20px rgba(255, 193, 7, 0.5)',
+                '0 0 40px rgba(255, 193, 7, 0.3)',
+                '0 0 20px rgba(255, 193, 7, 0.5)',
+              ],
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              top: '-4px',
+              left: '-4px',
+              right: '-4px',
+              bottom: '-4px',
+              border: '2px solid rgba(255, 193, 7, 0.2)',
+            }}
+          />
         </motion.div>
       </motion.div>
 
-      {/* Floating particles */}
-      {isMounted && (
-        <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-          {particles.map((particle) => (
-            <motion.div
-              key={particle.id}
-              className="absolute w-1 h-1 bg-green-400 rounded-full opacity-50"
-              initial={{
-                x: particle.startX,
-                y: particle.startY,
-              }}
-              animate={{
-                y: particle.endY,
-                opacity: 0,
-              }}
-              transition={{
-                duration: particle.duration,
-                repeat: Infinity,
-                ease: 'linear',
+      {/* Floating leaf particles */}
+      {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute pointer-events-none"
+            initial={{
+              x: particle.x,
+              y: particle.y,
+              opacity: 0,
+              rotate: 0,
+            }}
+            animate={{
+              y: window.innerHeight + 100,
+              opacity: [0, 1, 1, 0],
+              rotate: 360,
+            }}
+            transition={{
+              duration: particle.duration,
+              delay: particle.delay,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          >
+            <div
+              className="w-2 h-2 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, #84cc16 0%, #65a30d 100%)',
+                boxShadow: '0 0 8px rgba(132, 204, 22, 0.6)',
               }}
             />
-          ))}
-        </div>
-      )}
+          </motion.div>
+        ))}
+
+      {/* Forest atmosphere text hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 2, delay: 3 }}
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center pointer-events-none"
+      >
+        <motion.p
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="text-xs md:text-sm text-yellow-300/70 tracking-widest font-light"
+        >
+          ↓ SCROLL TO EXPLORE THE FOREST ↓
+        </motion.p>
+      </motion.div>
     </div>
   )
 }
