@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --forest-green: #1A4D2E;
+  --wood-brown: #8B5A2B;
+  --gold-yellow: #FFC107;
+  --earth-charcoal: #121212;
+  --grass-green: #4CAF50;
+  --deep-shadow: rgba(0, 0, 0, 0.8);
+  --moss-glow: rgba(26, 77, 46, 0.3);
+  --golden-glow: rgba(255, 193, 7, 0.2);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  
+  /* Added proper color palette configuration for Tailwind v4 */
+  --color-background: #0f1419;
+  --color-foreground: #f5f5f5;
+  --color-card: #1a1f2e;
+  --color-card-foreground: #f5f5f5;
+  --color-primary: #1A4D2E;
+  --color-primary-foreground: #FFC107;
+  --color-accent: #FFC107;
+  --color-accent-foreground: #121212;
+  --color-border: rgba(255, 193, 7, 0.1);
+  --color-input: #262d3a;
+  --color-ring: #FFC107;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  /* Replaced invalid @apply border-border with proper CSS */
+  * {
+    border-color: var(--color-border);
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  /* 3D and shadow effects */
+  .shadow-deep {
+    box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.9);
+  }
+
+  .shadow-3d {
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.95),
+                0 10px 20px -5px rgba(255, 193, 7, 0.1);
+  }
+
+  .glow-moss {
+    box-shadow: inset 0 0 30px var(--moss-glow),
+                0 0 30px var(--moss-glow);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px var(--golden-glow),
+                inset 0 0 20px var(--golden-glow);
+  }
+
+  /* Wood texture patterns */
+  .wood-texture {
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      ),
+      linear-gradient(180deg, #8B5A2B 0%, #6b4423 50%, #5a3a1a 100%);
+  }
+
+  /* Bebas Neue for headings */
+  .font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 77, 46, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFC107, #1A4D2E);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFD54F, #2d6e48);
+}
