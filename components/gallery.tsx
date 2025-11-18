@@ -119,7 +119,7 @@ export default function Gallery() {
                 className="group relative overflow-hidden rounded-xl"
               >
                 {/* Gallery Item */}
-                <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 border border-emerald-500/20 rounded-xl overflow-hidden shadow-3d group-hover:shadow-3d transition-all duration-500">
+                <div className="wooden-3d relative h-64 rounded-xl overflow-hidden transition-all duration-500 wooden-card">
                   {/* Image */}
                   {item.image && (
                     <img
