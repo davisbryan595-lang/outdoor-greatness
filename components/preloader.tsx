@@ -6,17 +6,24 @@ export default function Preloader() {
   const [shouldRender, setShouldRender] = useState(true)
 
   useEffect(() => {
+    console.log('[Preloader] Mounted, will hide in 2500ms')
     const timer = setTimeout(() => {
+      console.log('[Preloader] Hiding now')
       setShouldRender(false)
     }, 2500)
 
-    return () => clearTimeout(timer)
+    return () => {
+      console.log('[Preloader] Cleanup')
+      clearTimeout(timer)
+    }
   }, [])
 
   if (!shouldRender) {
+    console.log('[Preloader] Not rendering')
     return null
   }
 
+  console.log('[Preloader] Rendering')
   return (
     <div className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center">
       <div className="relative w-40 h-40">
