@@ -61,7 +61,7 @@ export default function Gallery() {
   const selectedItem = galleryItems.find((item) => item.id === selectedId)
 
   return (
-    <section id="gallery" className="relative py-32 px-4 overflow-visible min-h-screen">
+    <section id="gallery" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-visible min-h-screen">
       {/* Background gradient for forest depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
@@ -76,10 +76,10 @@ export default function Gallery() {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
           <h2
-            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest mb-3 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
               backgroundClip: 'text',
