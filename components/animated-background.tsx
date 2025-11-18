@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Stars, Environment, Fog } from '@react-three/drei'
+import { Canvas, useThree } from '@react-three/fiber'
+import { Stars, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 function ParticleField() {
