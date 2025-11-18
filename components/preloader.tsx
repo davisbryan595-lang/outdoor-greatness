@@ -1,31 +1,26 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 export default function Preloader() {
-  const [shouldRender, setShouldRender] = useState(true)
-
-  useEffect(() => {
-    console.log('[Preloader] Mounted, will hide in 2500ms')
-    const timer = setTimeout(() => {
-      console.log('[Preloader] Hiding now')
-      setShouldRender(false)
-    }, 2500)
-
-    return () => {
-      console.log('[Preloader] Cleanup')
-      clearTimeout(timer)
-    }
-  }, [])
-
-  if (!shouldRender) {
-    console.log('[Preloader] Not rendering')
-    return null
-  }
-
-  console.log('[Preloader] Rendering')
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center">
+    <div 
+      className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center"
+      style={{
+        animation: 'fadeOut 0.6s ease-out 2.5s forwards',
+      }}
+    >
+      <style>{`
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          to {
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+      `}</style>
+      
       <div className="relative w-40 h-40">
         {/* Rotating sun */}
         <div
