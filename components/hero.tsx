@@ -50,7 +50,7 @@ export default function Hero() {
     <div
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
     >
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 z-5 pointer-events-none" />
@@ -60,14 +60,14 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 text-center px-4 max-w-6xl"
+        className="relative z-10 text-center px-3 sm:px-4 md:px-6 max-w-6xl w-full"
       >
         {/* Main Title with 3D effect */}
-        <div className="mb-8 perspective">
+        <div className="mb-6 sm:mb-8 perspective">
           <motion.h1
             initial="hidden"
             animate="visible"
-            className="font-bebas text-7xl md:text-9xl tracking-widest font-bold leading-tight mb-4"
+            className="font-bebas text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-widest font-bold leading-tight mb-2 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #84cc16 0%, #fbbf24 50%, #FFC107 100%)',
               backgroundClip: 'text',
