@@ -53,7 +53,7 @@ const pricingData = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-32 px-4 overflow-visible">
+    <section id="pricing" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-visible">
       {/* Background gradient for forest depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
@@ -68,10 +68,10 @@ export default function Pricing() {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-14 sm:mb-16 md:mb-20"
         >
           <h2
-            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest mb-3 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
               backgroundClip: 'text',
