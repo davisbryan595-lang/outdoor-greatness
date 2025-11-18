@@ -280,12 +280,26 @@ export default function Gallery() {
 
                 {/* Close button */}
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setSelectedId(null)}
-                  className="absolute -top-4 -right-4 w-10 h-10 bg-yellow-500 rounded-full text-black font-bold flex items-center justify-center shadow-lg"
+                  className="absolute -top-5 -right-5 w-12 h-12 rounded-full text-white font-bold flex items-center justify-center shadow-2xl overflow-hidden group relative"
+                  style={{
+                    background: 'linear-gradient(135deg, #FFC107 0%, #FFD700 100%)',
+                    boxShadow: '0 8px 20px rgba(255, 193, 7, 0.6)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                  }}
                 >
-                  ✕
+                  {/* Glow effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    style={{
+                      boxShadow: 'inset 0 0 15px rgba(255, 255, 255, 0.3)',
+                    }}
+                  />
+                  <span className="relative z-10 text-xl">✕</span>
                 </motion.button>
               </div>
             </motion.div>
