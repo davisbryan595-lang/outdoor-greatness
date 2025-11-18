@@ -33,19 +33,13 @@ export default function Navbar() {
           whileHover={{ scale: 1.08 }}
           className="flex items-center gap-3 cursor-pointer"
         >
-          <div className="w-14 h-14 relative">
+          <div className="w-24 h-24 relative">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F37fe508629794307b44d873859aad7cf%2Fef689bf59abe4107b56960b1072dd988?format=webp&width=800"
               alt="Outdoor Greatness Logo"
               className="w-full h-full object-contain drop-shadow-xl"
               style={{ filter: 'drop-shadow(0 0 20px rgba(255, 193, 7, 0.3))' }}
             />
-          </div>
-          <div className="hidden md:block">
-            <h1 className="font-bebas text-xl tracking-widest text-white" style={{ textShadow: '0 0 20px rgba(255, 193, 7, 0.3)' }}>
-              OUTDOOR
-            </h1>
-            <p className="text-xs text-yellow-400 tracking-widest">GREATNESS</p>
           </div>
         </motion.div>
 
