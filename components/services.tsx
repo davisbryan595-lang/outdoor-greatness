@@ -75,7 +75,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/30 to-slate-950 z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
