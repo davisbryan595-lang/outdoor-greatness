@@ -69,6 +69,7 @@ export default function AnimatedBackground() {
   return (
     <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
       <color attach="background" args={['#0f1419']} />
+      <FogComponent />
       <ParticleField />
     </Canvas>
   )
