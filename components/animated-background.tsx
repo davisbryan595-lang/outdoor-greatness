@@ -1,9 +1,22 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Stars, Environment, Fog } from '@react-three/drei'
+import { Canvas, useThree } from '@react-three/fiber'
+import { Stars, Environment } from '@react-three/drei'
 import * as THREE from 'three'
+
+function FogComponent() {
+  const { scene } = useThree()
+
+  useEffect(() => {
+    scene.fog = new THREE.Fog('#0f1419', 30, 100)
+    return () => {
+      scene.fog = null
+    }
+  }, [scene])
+
+  return null
+}
 
 function ParticleField() {
   const groupRef = useRef<THREE.Group>(null)
@@ -44,11 +57,10 @@ function ParticleField() {
   return (
     <group ref={groupRef}>
       <points ref={pointsRef} geometry={particleGeometry}>
-        <pointsMaterial size={0.3} color="#4CAF50" sizeAttenuation transparent opacity={0.4} />
+        <pointsMaterial size={0.3} color="#10b981" sizeAttenuation transparent opacity={0.6} />
       </points>
-      <Stars radius={100} depth={50} count={1000} factor={4} saturation={0.7} />
+      <Stars radius={100} depth={50} count={1000} factor={4} saturation={0.8} />
       <Environment preset="forest" />
-      <Fog attach="fog" args={['#0f1419', 30, 100]} />
     </group>
   )
 }
@@ -57,6 +69,7 @@ export default function AnimatedBackground() {
   return (
     <Canvas camera={{ position: [0, 0, 50], fov: 75 }}>
       <color attach="background" args={['#0f1419']} />
+      <FogComponent />
       <ParticleField />
     </Canvas>
   )

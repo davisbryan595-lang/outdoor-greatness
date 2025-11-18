@@ -40,38 +40,38 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.1 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.45 0.12 142);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.45 0.1 40);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.35 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.82 0.16 84.8);
+  --accent-foreground: oklch(0.15 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.45 0.12 142);
+  --chart-1: oklch(0.65 0.15 142);
+  --chart-2: oklch(0.7 0.12 84.8);
+  --chart-3: oklch(0.6 0.1 40);
+  --chart-4: oklch(0.45 0.1 142);
+  --chart-5: oklch(0.55 0.14 40);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.45 0.12 142);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.82 0.16 84.8);
+  --sidebar-accent-foreground: oklch(0.15 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.45 0.12 142);
 }
 
 @theme inline {
@@ -121,5 +121,84 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* 3D Wooden Look Styles */
+@layer components {
+  .wooden-card {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      135deg,
+      #8b6f47 0%,
+      #a0826d 25%,
+      #7a5c3b 50%,
+      #9d7e5d 75%,
+      #8b6f47 100%
+    );
+    background-size: 400% 400%;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+    border: 1px solid #6b5444;
+  }
+
+  .wooden-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+      );
+    pointer-events: none;
+  }
+
+  .wooden-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .wooden-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .wooden-3d:hover {
+    transform: rotateX(2deg) rotateY(-5deg) translateZ(20px);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.9),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .wood-texture {
+    position: relative;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px),
+      linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px, 50px 50px, 34px 34px, 34px 34px, 1300px 53px;
+    background-position: 0 0, 10px 10px, 0 0, 10px 10px, 0 0;
   }
 }

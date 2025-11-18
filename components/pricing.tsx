@@ -49,7 +49,7 @@ const pricingData = [
 export default function Pricing() {
   return (
     <section id="pricing" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-950 z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-500">TRANSPARENT</span> PRICING
+            <span className="text-yellow-400">TRANSPARENT</span> <span className="text-green-400">PRICING</span>
           </h2>
           <p className="text-gray-400 text-lg">Quality service at competitive rates</p>
         </motion.div>
@@ -81,24 +81,22 @@ export default function Pricing() {
               whileHover={{ y: -15 }}
               className={`relative group ${item.highlight ? 'lg:scale-105' : ''}`}
             >
-              {/* Wooden board effect */}
-              <div className={`relative p-8 rounded-xl backdrop-blur-md border transition-all duration-500 shadow-3d
-                ${item.highlight
-                  ? 'bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 border-yellow-500/50'
-                  : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-yellow-500/20 group-hover:border-yellow-500/50'
-                }`}
+              {/* Pricing Card */}
+              <div className={`wooden-3d relative p-8 rounded-xl transition-all duration-500 ${
+                item.highlight
+                  ? 'wooden-card border-yellow-500/50 shadow-2xl'
+                  : 'wooden-card border-emerald-500/30 group-hover:border-yellow-500/50'
+              }`}
               >
-                {/* Rope effect */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-gray-600 rounded-full shadow-lg" />
 
                 {/* Title */}
-                <h3 className="font-bebas text-2xl tracking-wider text-yellow-400 mb-2">
+                <h3 className="font-bebas text-2xl tracking-wider text-green-300 mb-2">
                   {item.title}
                 </h3>
 
                 {/* Price */}
                 <motion.div
-                  className="text-4xl font-bebas tracking-wider text-yellow-500 mb-6"
+                  className="text-4xl font-bebas tracking-wider text-yellow-400 mb-6"
                 >
                   {item.price}
                 </motion.div>

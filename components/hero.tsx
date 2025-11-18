@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, Environment, Lightformer, Text, Stars } from '@react-three/drei'
@@ -36,9 +36,7 @@ function FloatingSign() {
         />
       </mesh>
       
-      <Text position={[0, 0, 0.2]} fontSize={0.4} color="#FFC107" font="/fonts/Geist_Bold.ttf">
-        OUTDOOR GREATNESS
-      </Text>
+      {/* Text component removed due to missing font file */}
     </group>
   )
 }
@@ -59,7 +57,34 @@ function HeroScene() {
   )
 }
 
+interface Particle {
+  id: number
+  startX: number
+  startY: number
+  duration: number
+  endY: number
+}
+
 export default function Hero() {
+  const [particles, setParticles] = useState<Particle[]>([])
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    const width = typeof window !== 'undefined' ? window.innerWidth : 800
+    const height = typeof window !== 'undefined' ? window.innerHeight : 600
+
+    const particleArray: Particle[] = Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      startX: Math.random() * width,
+      startY: Math.random() * height,
+      duration: Math.random() * 3 + 5,
+      endY: height + 100,
+    }))
+
+    setParticles(particleArray)
+  }, [])
+
   return (
     <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* 3D Canvas Background */}
@@ -81,14 +106,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-bebas text-6xl md:text-8xl tracking-wider mb-4"
+          className="font-bebas text-6xl md:text-8xl tracking-wider mb-4 text-white"
           style={{
-            backgroundImage: 'linear-gradient(to right, #FFC107, #FFD54F)',
+            backgroundImage: 'linear-gradient(to right, #84cc16, #fbbf24)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 60px rgba(255, 193, 7, 0.3)',
-            filter: 'drop-shadow(0 0 30px rgba(255, 193, 7, 0.2))',
+            textShadow: '0 0 60px rgba(132, 204, 22, 0.3)',
+            filter: 'drop-shadow(0 0 30px rgba(132, 204, 22, 0.2))',
           }}
         >
           OUTDOOR GREATNESS
@@ -131,27 +156,29 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-green-400 rounded-full opacity-50"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: window.innerHeight + 100,
-              opacity: 0,
-            }}
-            transition={{
-              duration: Math.random() * 3 + 5,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+          {particles.map((particle) => (
+            <motion.div
+              key={particle.id}
+              className="absolute w-1 h-1 bg-green-400 rounded-full opacity-50"
+              initial={{
+                x: particle.startX,
+                y: particle.startY,
+              }}
+              animate={{
+                y: particle.endY,
+                opacity: 0,
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

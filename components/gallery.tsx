@@ -10,36 +10,42 @@ const galleryItems = [
     category: 'Trees',
     title: 'Mature Oak Removal',
     description: 'Professional removal of 80-year-old oak tree',
+    image: 'https://images.unsplash.com/photo-1505820692951-75cc615ce59f?w=800&h=600&fit=crop',
   },
   {
     id: 2,
     category: 'Landscapes',
     title: 'Modern Garden Design',
     description: 'Contemporary landscape with hardscaping',
+    image: 'https://images.unsplash.com/photo-1629496095057-8c82eb62a80a?w=800&h=600&fit=crop',
   },
   {
     id: 3,
     category: 'Before-After',
     title: 'Transformation',
     description: 'Complete yard renovation project',
+    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop',
   },
   {
     id: 4,
     category: 'Trees',
     title: 'Crown Pruning',
     description: 'Precision pruning for health and aesthetics',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
   },
   {
     id: 5,
     category: 'Landscapes',
     title: 'Hardscape Installation',
     description: 'Paver patio with garden borders',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
   },
   {
     id: 6,
     category: 'Before-After',
     title: 'Storm Recovery',
     description: 'Post-storm cleanup and restoration',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop',
   },
 ]
 
@@ -54,7 +60,7 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900/50 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-900/50 z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -70,7 +76,7 @@ export default function Gallery() {
           className="text-center mb-12"
         >
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-500">OUR</span> PORTFOLIO
+            <span className="text-yellow-400">OUR</span> <span className="text-green-400">PORTFOLIO</span>
           </h2>
         </motion.div>
 
@@ -89,8 +95,8 @@ export default function Gallery() {
               whileTap={{ scale: 0.95 }}
               className={`px-6 py-2 font-bebas tracking-wider rounded-lg transition-all ${
                 activeFilter === filter
-                  ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/50'
-                  : 'border border-yellow-500/30 text-yellow-400 hover:border-yellow-500/60'
+                  ? 'bg-gradient-to-r from-yellow-400 to-emerald-400 text-black shadow-lg shadow-yellow-400/50'
+                  : 'border border-emerald-500/30 text-emerald-400 hover:border-emerald-500/60'
               }`}
             >
               {filter}
@@ -113,14 +119,23 @@ export default function Gallery() {
                 className="group relative overflow-hidden rounded-xl"
               >
                 {/* Gallery Item */}
-                <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 border border-yellow-500/20 rounded-xl overflow-hidden shadow-3d group-hover:shadow-3d transition-all duration-500">
-                  {/* Placeholder with gradient */}
-                  <div className="w-full h-full bg-gradient-to-br from-green-900/30 via-slate-900 to-yellow-900/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
-                      <p className="text-yellow-500/60 text-sm">{item.category}</p>
+                <div className="wooden-3d relative h-64 rounded-xl overflow-hidden transition-all duration-500 wooden-card">
+                  {/* Image */}
+                  {item.image && (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {!item.image && (
+                    <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 via-slate-900 to-yellow-900/30 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
+                        <p className="text-emerald-400/60 text-sm">{item.category}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Overlay */}
                   <motion.div
@@ -129,7 +144,7 @@ export default function Gallery() {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-6"
                   >
-                    <h3 className="font-bebas text-xl tracking-wider text-yellow-400 mb-1">
+                    <h3 className="font-bebas text-xl tracking-wider text-yellow-300 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-gray-300 text-sm">{item.description}</p>

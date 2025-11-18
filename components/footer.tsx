@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black border-t border-yellow-500/20 py-12 overflow-hidden">
+    <footer className="relative bg-black border-t border-emerald-500/20 py-12 overflow-hidden">
       {/* Background effect */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent pointer-events-none" />
 
@@ -21,7 +21,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-bebas text-2xl tracking-wider text-yellow-500 mb-4">
+            <h3 className="font-bebas text-2xl tracking-wider text-yellow-400 mb-4">
               OUTDOOR GREATNESS
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -35,11 +35,11 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-bebas text-lg tracking-wider text-yellow-400 mb-4">SERVICES</h4>
+            <h4 className="font-bebas text-lg tracking-wider text-green-400 mb-4">SERVICES</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               {['Tree Removal', 'Landscaping', 'Lawn Care', 'Storm Cleanup'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="hover:text-yellow-500 transition-colors">
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
                     {item}
                   </a>
                 </li>
@@ -53,10 +53,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-bebas text-lg tracking-wider text-yellow-400 mb-4">CONTACT</h4>
+            <h4 className="font-bebas text-lg tracking-wider text-green-400 mb-4">CONTACT</h4>
             <div className="space-y-2 text-gray-400 text-sm">
               <p>
-                <a href="tel:781-732-8301" className="hover:text-yellow-500 transition-colors">
+                <a href="tel:781-732-8301" className="hover:text-yellow-400 transition-colors">
                   📞 781-732-8301
                 </a>
               </p>
@@ -67,7 +67,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-yellow-500/10 pt-8" />
+        <div className="border-t border-emerald-500/10 pt-8" />
 
         {/* Bottom */}
         <motion.div
@@ -78,13 +78,13 @@ export default function Footer() {
         >
           <p>&copy; 2025 Outdoor Greatness. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-yellow-500 transition-colors">
+            <a href="#" className="hover:text-yellow-400 transition-colors">
               Privacy
             </a>
-            <a href="#" className="hover:text-yellow-500 transition-colors">
+            <a href="#" className="hover:text-yellow-400 transition-colors">
               Terms
             </a>
-            <a href="#" className="hover:text-yellow-500 transition-colors">
+            <a href="#" className="hover:text-yellow-400 transition-colors">
               Contact
             </a>
           </div>

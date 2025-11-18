@@ -62,9 +62,9 @@ function FloatingCard() {
     <mesh ref={meshRef}>
       <boxGeometry args={[2.5, 3, 0.2]} />
       <meshPhysicalMaterial
-        color="#8B5A2B"
-        roughness={0.6}
-        metalness={0.3}
+        color="#6b5b4e"
+        roughness={0.5}
+        metalness={0.1}
       />
     </mesh>
   )
@@ -75,7 +75,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/30 to-slate-950 z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -91,7 +91,7 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-500">OUR</span> SERVICES
+            <span className="text-yellow-400">OUR</span> <span className="text-green-400">SERVICES</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Comprehensive outdoor excellence from design to maintenance
@@ -110,9 +110,9 @@ export default function Services() {
               className="relative group"
             >
               {/* Card Background with 3D depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-green-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative p-8 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-md rounded-2xl border border-yellow-500/20 group-hover:border-yellow-500/50 transition-all duration-500 shadow-3d hover:shadow-3d">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-emerald-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="wooden-3d relative p-8 wooden-card rounded-2xl transition-all duration-500">
                 {/* Icon */}
                 <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-500">
                   {service.icon}
