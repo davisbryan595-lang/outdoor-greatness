@@ -48,7 +48,7 @@ export default function Preloader() {
         </div>
 
         {/* Text animation */}
-        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-yellow-500 text-sm font-bebas tracking-wider opacity-70">
+        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-emerald-400 text-sm font-bebas tracking-wider opacity-70">
           GROWING YOUR OUTDOOR GREATNESS
         </div>
       </div>
