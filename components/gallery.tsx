@@ -106,9 +106,9 @@ export default function Gallery() {
             <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              whileHover={{ scale: 1.1, y: -2 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.92 }}
-              className={`relative px-7 py-3 font-bebas tracking-widest rounded-full transition-all duration-300 overflow-hidden group`}
+              className={`relative px-4 sm:px-6 md:px-7 py-2 sm:py-3 font-bebas tracking-widest text-xs sm:text-sm rounded-full transition-all duration-300 overflow-hidden group`}
               style={
                 activeFilter === filter
                   ? {
