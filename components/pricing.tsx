@@ -82,11 +82,11 @@ export default function Pricing() {
               className={`relative group ${item.highlight ? 'lg:scale-105' : ''}`}
             >
               {/* Pricing Card */}
-              <div className={`relative p-8 rounded-xl backdrop-blur-md border transition-all duration-500 shadow-3d
-                ${item.highlight
-                  ? 'bg-gradient-to-br from-yellow-500/20 to-emerald-600/10 border-yellow-500/50'
-                  : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-emerald-500/20 group-hover:border-emerald-500/50'
-                }`}
+              <div className={`wooden-3d relative p-8 rounded-xl transition-all duration-500 ${
+                item.highlight
+                  ? 'wooden-card border-yellow-500/50 shadow-2xl'
+                  : 'wooden-card border-emerald-500/30 group-hover:border-yellow-500/50'
+              }`}
               >
 
                 {/* Title */}
