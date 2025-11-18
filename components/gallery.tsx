@@ -120,13 +120,22 @@ export default function Gallery() {
               >
                 {/* Gallery Item */}
                 <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 border border-emerald-500/20 rounded-xl overflow-hidden shadow-3d group-hover:shadow-3d transition-all duration-500">
-                  {/* Placeholder with gradient */}
-                  <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 via-slate-900 to-yellow-900/30 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
-                      <p className="text-emerald-400/60 text-sm">{item.category}</p>
+                  {/* Image */}
+                  {item.image && (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {!item.image && (
+                    <div className="w-full h-full bg-gradient-to-br from-emerald-900/40 via-slate-900 to-yellow-900/30 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-5xl mb-2">{['🌲', '🏞️', '🔄'][index % 3]}</div>
+                        <p className="text-emerald-400/60 text-sm">{item.category}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Overlay */}
                   <motion.div
