@@ -236,7 +236,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Message */}
-                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="md:col-span-2">
+                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="sm:col-span-2">
                   <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     MESSAGE
                   </label>
