@@ -14,14 +14,13 @@ export default function Preloader() {
     return () => clearTimeout(timer)
   }, [])
 
-  if (!isVisible) return null
-
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.6 }}
       className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center"
+      style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
     >
       <div className="relative w-40 h-40">
         {/* Rotating sun */}
