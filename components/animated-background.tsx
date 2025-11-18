@@ -57,9 +57,9 @@ function ParticleField() {
   return (
     <group ref={groupRef}>
       <points ref={pointsRef} geometry={particleGeometry}>
-        <pointsMaterial size={0.3} color="#4CAF50" sizeAttenuation transparent opacity={0.4} />
+        <pointsMaterial size={0.3} color="#10b981" sizeAttenuation transparent opacity={0.6} />
       </points>
-      <Stars radius={100} depth={50} count={1000} factor={4} saturation={0.7} />
+      <Stars radius={100} depth={50} count={1000} factor={4} saturation={0.8} />
       <Environment preset="forest" />
     </group>
   )
