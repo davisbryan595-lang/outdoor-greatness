@@ -62,9 +62,9 @@ function FloatingCard() {
     <mesh ref={meshRef}>
       <boxGeometry args={[2.5, 3, 0.2]} />
       <meshPhysicalMaterial
-        color="#8B5A2B"
-        roughness={0.6}
-        metalness={0.3}
+        color="#6b5b4e"
+        roughness={0.5}
+        metalness={0.1}
       />
     </mesh>
   )
