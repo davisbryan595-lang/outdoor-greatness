@@ -10,9 +10,10 @@ export default function ForestAmbience() {
   const hidingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    // Create audio element for forest ambience
+    // Create audio element for forest breeze ambience
     const audioElement = new Audio()
-    audioElement.src = 'https://assets.mixkit.co/active_storage/sfx/2704/2704-preview.mp3'
+    // High-quality forest wind/breeze with ruffling leaves from freesound
+    audioElement.src = 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_1aebbd66d3.mp3'
     audioElement.loop = true
     audioElement.volume = 0.3
     audioRef.current = audioElement

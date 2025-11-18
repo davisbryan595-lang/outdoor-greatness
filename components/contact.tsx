@@ -38,7 +38,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 px-4 overflow-visible min-h-screen">
+    <section id="contact" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-visible min-h-screen">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
@@ -53,10 +53,10 @@ export default function Contact() {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-14 md:mb-16"
         >
           <h2
-            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest mb-3 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
               backgroundClip: 'text',
@@ -67,7 +67,7 @@ export default function Contact() {
           >
             BOOK NOW
           </h2>
-          <p className="text-gray-300 text-lg tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Leave a message in the forest mailbox
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export default function Contact() {
 
           {/* Main Form Container - Parchment style */}
           <div
-            className="relative p-10 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative p-6 sm:p-8 md:p-10 rounded-2xl overflow-hidden shadow-2xl"
             style={{
               background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
               boxShadow: '0 0 60px rgba(139, 90, 43, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
@@ -120,9 +120,9 @@ export default function Contact() {
             {/* Content */}
             <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
               {/* Form Header */}
-              <div className="text-center mb-8 pb-4 border-b border-yellow-600/40">
+              <div className="text-center mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-yellow-600/40">
                 <p
-                  className="font-bebas text-2xl tracking-widest mb-2"
+                  className="font-bebas text-lg sm:text-xl md:text-2xl tracking-widest mb-1 sm:mb-2"
                   style={{
                     color: '#FFC107',
                     textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
@@ -136,10 +136,10 @@ export default function Contact() {
               </div>
 
               {/* Form Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Name */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     NAME
                   </label>
                   <input
@@ -158,7 +158,7 @@ export default function Contact() {
 
                 {/* Phone */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     PHONE
                   </label>
                   <input
@@ -177,7 +177,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     EMAIL
                   </label>
                   <input
@@ -196,7 +196,7 @@ export default function Contact() {
 
                 {/* Service */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     SERVICE
                   </label>
                   <select
@@ -218,8 +218,8 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Address */}
-                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="md:col-span-2">
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="sm:col-span-2">
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     ADDRESS
                   </label>
                   <input
@@ -236,8 +236,8 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Message */}
-                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="md:col-span-2">
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="sm:col-span-2">
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     MESSAGE
                   </label>
                   <textarea
@@ -259,7 +259,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-yellow-600/40"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-yellow-600/40"
               >
                 <motion.div
                   whileHover={{ scale: 1.08 }}
@@ -268,7 +268,7 @@ export default function Contact() {
                 >
                   <motion.button
                     type="submit"
-                    className="w-full py-4 rounded-xl font-bebas tracking-widest text-lg transition-all overflow-hidden relative group"
+                    className="w-full py-3 sm:py-4 rounded-xl font-bebas tracking-widest text-sm sm:text-lg transition-all overflow-hidden relative group"
                     style={{
                       background: submitted
                         ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
@@ -303,7 +303,7 @@ export default function Contact() {
               </motion.div>
 
               {/* Decorative text */}
-              <p className="text-center text-xs text-gray-200 mt-4" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+              <p className="text-center text-xs sm:text-xs text-gray-200 mt-3 sm:mt-4 px-2" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                 Phone: 781-732-8301 • Available 24/7 for emergencies
               </p>
             </form>

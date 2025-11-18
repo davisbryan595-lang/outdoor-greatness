@@ -50,7 +50,7 @@ export default function Hero() {
     <div
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
     >
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 z-5 pointer-events-none" />
@@ -60,14 +60,14 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 text-center px-4 max-w-6xl"
+        className="relative z-10 text-center px-3 sm:px-4 md:px-6 max-w-6xl w-full"
       >
         {/* Main Title with 3D effect */}
-        <div className="mb-8 perspective">
+        <div className="mb-6 sm:mb-8 perspective">
           <motion.h1
             initial="hidden"
             animate="visible"
-            className="font-bebas text-7xl md:text-9xl tracking-widest font-bold leading-tight mb-4"
+            className="font-bebas text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-widest font-bold leading-tight mb-2 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #84cc16 0%, #fbbf24 50%, #FFC107 100%)',
               backgroundClip: 'text',
@@ -92,17 +92,17 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mb-12"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <p
-            className="text-xl md:text-3xl text-gray-200 font-light tracking-widest mb-2"
+            className="text-base sm:text-lg md:text-2xl lg:text-3xl text-gray-200 font-light tracking-widest mb-1 sm:mb-2"
             style={{
               textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
             }}
           >
             Landscaping & Tree Service
           </p>
-          <p className="text-sm md:text-lg text-yellow-300 tracking-widest">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-yellow-300 tracking-widest">
             EXPERT CARE FOR YOUR OUTDOOR SPACE
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center mb-8 sm:mb-10 md:mb-12"
         >
           <WoodenButton href="#gallery" size="lg">
             VIEW OUR WORK
@@ -128,13 +128,13 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.5, type: 'spring' }}
-          className="relative inline-block"
+          className="relative inline-block w-full sm:w-auto px-3 sm:px-0"
         >
           <motion.a
             href="tel:781-732-8301"
-            whileHover={{ scale: 1.1, rotateY: 10 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative flex items-center gap-3 px-8 py-4 rounded-full font-bebas tracking-widest text-lg"
+            className="relative flex items-center justify-center sm:justify-start gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 rounded-full font-bebas tracking-widest text-sm sm:text-base md:text-lg"
             style={{
               background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
               color: '#FFD700',
@@ -220,12 +220,12 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 2, delay: 3 }}
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center pointer-events-none"
+        className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-1/2 transform -translate-x-1/2 text-center pointer-events-none px-4"
       >
         <motion.p
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="text-xs md:text-sm text-yellow-300/70 tracking-widest font-light"
+          className="text-xs sm:text-sm text-yellow-300/70 tracking-widest font-light"
         >
           ↓ SCROLL TO EXPLORE THE FOREST ↓
         </motion.p>

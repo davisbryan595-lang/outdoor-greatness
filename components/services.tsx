@@ -47,7 +47,7 @@ export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="services" className="relative py-32 px-4 overflow-visible">
+    <section id="services" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-visible">
       {/* Background gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
@@ -62,10 +62,10 @@ export default function Services() {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <h2
-            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest mb-3 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
               backgroundClip: 'text',
@@ -77,7 +77,7 @@ export default function Services() {
             OUR SERVICES
           </h2>
           <p
-            className="text-gray-300 text-lg max-w-2xl mx-auto tracking-wide"
+            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto tracking-wide"
             style={{
               textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
             }}
@@ -89,7 +89,7 @@ export default function Services() {
         {/* Services Grid - Wooden Signs */}
         <div
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center relative"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 place-items-center relative"
         >
           {serviceData.map((service, index) => (
             <motion.div
@@ -160,9 +160,9 @@ export default function Services() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.6 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-center mt-16 pointer-events-none"
+          className="text-center mt-10 sm:mt-12 md:mt-16 pointer-events-none px-4"
         >
-          <p className="text-sm text-yellow-400/50 tracking-widest font-light">
+          <p className="text-xs sm:text-sm text-yellow-400/50 tracking-widest font-light">
             EACH SIGN REPRESENTS A COMMITMENT TO EXCELLENCE IN YOUR OUTDOOR SPACE
           </p>
         </motion.div>

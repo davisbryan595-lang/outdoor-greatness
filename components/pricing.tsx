@@ -53,7 +53,7 @@ const pricingData = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-32 px-4 overflow-visible">
+    <section id="pricing" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 overflow-visible">
       {/* Background gradient for forest depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none z-0" />
 
@@ -68,10 +68,10 @@ export default function Pricing() {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-14 sm:mb-16 md:mb-20"
         >
           <h2
-            className="font-bebas text-6xl md:text-7xl tracking-widest mb-4"
+            className="font-bebas text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest mb-3 sm:mb-4"
             style={{
               background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
               backgroundClip: 'text',
@@ -82,13 +82,13 @@ export default function Pricing() {
           >
             PRICING TAGS
           </h2>
-          <p className="text-gray-300 text-lg tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Hanging from the branches - transparent pricing
           </p>
         </motion.div>
 
         {/* Pricing Cards - Wooden Tags */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 place-items-center">
           {pricingData.map((item, index) => (
             <motion.div
               key={index}
@@ -100,11 +100,11 @@ export default function Pricing() {
                 type: 'spring',
                 stiffness: 100,
               }}
-              className={`w-full max-w-xs relative ${item.highlight ? 'lg:scale-110' : ''}`}
+              className={`w-full max-w-xs h-full relative ${item.highlight ? 'lg:scale-105 xl:scale-110' : ''}`}
             >
               {/* Rope hanging from top */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1 h-6 bg-yellow-800 opacity-60" />
-              <div className="absolute -top-6 left-1/2 transform -translate-x-3 w-0.5 h-6 bg-yellow-700 opacity-50" />
+              <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2 w-1 h-4 sm:h-6 bg-yellow-800 opacity-60" />
+              <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-3 w-0.5 h-4 sm:h-6 bg-yellow-700 opacity-50" />
 
               {/* Wooden Price Tag */}
               <motion.div
@@ -113,7 +113,7 @@ export default function Pricing() {
                   y: -10,
                   boxShadow: '0 0 40px rgba(255, 193, 7, 0.6)',
                 }}
-                className="relative p-8 rounded-lg text-center"
+                className="relative p-6 sm:p-8 rounded-lg text-center"
                 style={{
                   background: item.highlight
                     ? 'linear-gradient(135deg, #FFC107 0%, #FFD700 50%, #FFA500 100%)'
@@ -151,7 +151,7 @@ export default function Pricing() {
                 {/* Content */}
                 <div className="relative z-10">
                   <h3
-                    className="font-bebas text-lg tracking-widest mb-2"
+                    className="font-bebas text-base sm:text-lg tracking-widest mb-2"
                     style={{
                       color: item.highlight ? '#000' : '#FFC107',
                       textShadow: item.highlight ? '0 1px 2px rgba(0, 0, 0, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.5)',
@@ -162,7 +162,7 @@ export default function Pricing() {
 
                   {/* Price - Big and Bold */}
                   <motion.div
-                    className="font-bebas text-4xl tracking-widest mb-1"
+                    className="font-bebas text-2xl sm:text-3xl md:text-4xl tracking-widest mb-1"
                     style={{
                       color: item.highlight ? '#000' : '#FFD700',
                       textShadow: item.highlight ? '0 2px 4px rgba(0, 0, 0, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.7)',
@@ -182,11 +182,11 @@ export default function Pricing() {
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-6 text-xs">
+                  <ul className="space-y-2 mb-4 sm:mb-6 text-xs sm:text-sm">
                     {item.features.map((feature, fIndex) => (
                       <li
                         key={fIndex}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 text-left"
                         style={{
                           color: item.highlight ? '#000' : '#E8D4A0',
                           textShadow: item.highlight ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.3)',
@@ -239,12 +239,12 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 md:mt-20 text-center px-4"
         >
-          <p className="text-lg text-yellow-300 font-bebas tracking-widest" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-yellow-300 font-bebas tracking-widest" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             🌲 FREE ESTIMATES FOR ALL PROJECTS 🌲
           </p>
-          <p className="text-sm text-gray-300 mt-2">Contact us today for a professional assessment</p>
+          <p className="text-xs sm:text-sm text-gray-300 mt-2">Contact us today for a professional assessment</p>
         </motion.div>
       </motion.div>
     </section>
