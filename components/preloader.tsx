@@ -2,8 +2,8 @@
 
 export default function Preloader() {
   return (
-    <div 
-      className="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center"
+    <div
+      className="fixed inset-0 z-50 bg-gradient-to-b from-slate-950 to-emerald-950/20 flex items-center justify-center"
       style={{
         animation: 'fadeOut 0.6s ease-out 2.5s forwards',
       }}
