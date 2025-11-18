@@ -120,9 +120,9 @@ export default function Contact() {
             {/* Content */}
             <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
               {/* Form Header */}
-              <div className="text-center mb-8 pb-4 border-b border-yellow-600/40">
+              <div className="text-center mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-yellow-600/40">
                 <p
-                  className="font-bebas text-2xl tracking-widest mb-2"
+                  className="font-bebas text-lg sm:text-xl md:text-2xl tracking-widest mb-1 sm:mb-2"
                   style={{
                     color: '#FFC107',
                     textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
