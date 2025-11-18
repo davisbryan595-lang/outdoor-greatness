@@ -54,7 +54,7 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="relative py-24 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900/50 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-900/50 z-0" />
 
       <motion.div
         initial={{ opacity: 0 }}
