@@ -65,7 +65,7 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-500">TRANSPARENT</span> PRICING
+            <span className="text-yellow-400">TRANSPARENT</span> <span className="text-green-400">PRICING</span>
           </h2>
           <p className="text-gray-400 text-lg">Quality service at competitive rates</p>
         </motion.div>
