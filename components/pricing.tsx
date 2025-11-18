@@ -81,15 +81,13 @@ export default function Pricing() {
               whileHover={{ y: -15 }}
               className={`relative group ${item.highlight ? 'lg:scale-105' : ''}`}
             >
-              {/* Wooden board effect */}
+              {/* Pricing Card */}
               <div className={`relative p-8 rounded-xl backdrop-blur-md border transition-all duration-500 shadow-3d
                 ${item.highlight
-                  ? 'bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 border-yellow-500/50'
-                  : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-yellow-500/20 group-hover:border-yellow-500/50'
+                  ? 'bg-gradient-to-br from-yellow-500/20 to-emerald-600/10 border-yellow-500/50'
+                  : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-emerald-500/20 group-hover:border-emerald-500/50'
                 }`}
               >
-                {/* Rope effect */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-gray-600 rounded-full shadow-lg" />
 
                 {/* Title */}
                 <h3 className="font-bebas text-2xl tracking-wider text-yellow-400 mb-2">
