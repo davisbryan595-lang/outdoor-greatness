@@ -24,15 +24,15 @@ export default function Preloader() {
       <div className="relative w-40 h-40">
         {/* Rotating sun */}
         <div
-          className="absolute inset-0 rounded-full bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-2xl animate-spin"
+          className="absolute inset-0 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-2xl animate-spin"
           style={{
-            boxShadow: '0 0 60px rgba(255, 193, 7, 0.8)',
+            boxShadow: '0 0 60px rgba(52, 211, 153, 0.8)',
             animationDuration: '3s',
           }}
         />
 
         {/* Pulsing rays */}
-        <div className="absolute inset-0 rounded-full border-4 border-yellow-500 opacity-30 animate-pulse" />
+        <div className="absolute inset-0 rounded-full border-4 border-emerald-500 opacity-30 animate-pulse" />
 
         {/* Tree silhouette */}
         <div className="absolute inset-0 flex items-center justify-center">
