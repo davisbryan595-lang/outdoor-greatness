@@ -268,7 +268,7 @@ export default function Contact() {
                 >
                   <motion.button
                     type="submit"
-                    className="w-full py-4 rounded-xl font-bebas tracking-widest text-lg transition-all overflow-hidden relative group"
+                    className="w-full py-3 sm:py-4 rounded-xl font-bebas tracking-widest text-sm sm:text-lg transition-all overflow-hidden relative group"
                     style={{
                       background: submitted
                         ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
