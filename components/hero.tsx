@@ -59,7 +59,34 @@ function HeroScene() {
   )
 }
 
+interface Particle {
+  id: number
+  startX: number
+  startY: number
+  duration: number
+  endY: number
+}
+
 export default function Hero() {
+  const [particles, setParticles] = useState<Particle[]>([])
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    const width = typeof window !== 'undefined' ? window.innerWidth : 800
+    const height = typeof window !== 'undefined' ? window.innerHeight : 600
+
+    const particleArray: Particle[] = Array.from({ length: 10 }, (_, i) => ({
+      id: i,
+      startX: Math.random() * width,
+      startY: Math.random() * height,
+      duration: Math.random() * 3 + 5,
+      endY: height + 100,
+    }))
+
+    setParticles(particleArray)
+  }, [])
+
   return (
     <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* 3D Canvas Background */}
@@ -131,27 +158,29 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-green-400 rounded-full opacity-50"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: window.innerHeight + 100,
-              opacity: 0,
-            }}
-            transition={{
-              duration: Math.random() * 3 + 5,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+          {particles.map((particle) => (
+            <motion.div
+              key={particle.id}
+              className="absolute w-1 h-1 bg-green-400 rounded-full opacity-50"
+              initial={{
+                x: particle.startX,
+                y: particle.startY,
+              }}
+              animate={{
+                y: particle.endY,
+                opacity: 0,
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
