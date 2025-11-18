@@ -151,7 +151,7 @@ export default function Pricing() {
                 {/* Content */}
                 <div className="relative z-10">
                   <h3
-                    className="font-bebas text-lg tracking-widest mb-2"
+                    className="font-bebas text-base sm:text-lg tracking-widest mb-2"
                     style={{
                       color: item.highlight ? '#000' : '#FFC107',
                       textShadow: item.highlight ? '0 1px 2px rgba(0, 0, 0, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.5)',
