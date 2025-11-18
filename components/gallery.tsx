@@ -90,7 +90,7 @@ export default function Gallery() {
           >
             OUR PORTFOLIO
           </h2>
-          <p className="text-gray-300 text-lg tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Pinned memories in the forest
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ export default function Gallery() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center gap-4 mb-16 flex-wrap"
+          className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-12 sm:mb-14 md:mb-16 flex-wrap px-2"
         >
           {filters.map((filter) => (
             <motion.button
