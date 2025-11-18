@@ -78,10 +78,10 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
+          className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-xs sm:text-sm text-center gap-4 sm:gap-0"
         >
           <p>&copy; 2025 Outdoor Greatness. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="flex gap-4 sm:gap-6">
             <a href="#" className="hover:text-yellow-300 transition-colors">
               Privacy
             </a>
