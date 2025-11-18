@@ -92,17 +92,17 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mb-12"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <p
-            className="text-xl md:text-3xl text-gray-200 font-light tracking-widest mb-2"
+            className="text-base sm:text-lg md:text-2xl lg:text-3xl text-gray-200 font-light tracking-widest mb-1 sm:mb-2"
             style={{
               textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
             }}
           >
             Landscaping & Tree Service
           </p>
-          <p className="text-sm md:text-lg text-yellow-300 tracking-widest">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-yellow-300 tracking-widest">
             EXPERT CARE FOR YOUR OUTDOOR SPACE
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center mb-8 sm:mb-10 md:mb-12"
         >
           <WoodenButton href="#gallery" size="lg">
             VIEW OUR WORK
