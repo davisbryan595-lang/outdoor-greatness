@@ -162,7 +162,7 @@ export default function Pricing() {
 
                   {/* Price - Big and Bold */}
                   <motion.div
-                    className="font-bebas text-4xl tracking-widest mb-1"
+                    className="font-bebas text-2xl sm:text-3xl md:text-4xl tracking-widest mb-1"
                     style={{
                       color: item.highlight ? '#000' : '#FFD700',
                       textShadow: item.highlight ? '0 2px 4px rgba(0, 0, 0, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.7)',
