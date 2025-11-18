@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, Environment, Lightformer, Text, Stars } from '@react-three/drei'
