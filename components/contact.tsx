@@ -259,7 +259,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-yellow-600/40"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-yellow-600/40"
               >
                 <motion.div
                   whileHover={{ scale: 1.08 }}
