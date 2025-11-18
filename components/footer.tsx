@@ -35,10 +35,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-bebas text-lg tracking-wider text-yellow-400 mb-4" style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)' }}>
+            <h4 className="font-bebas text-base sm:text-lg tracking-wider text-yellow-400 mb-3 sm:mb-4" style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)' }}>
               SERVICES
             </h4>
-            <ul className="space-y-2 text-gray-300 text-sm">
+            <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
               {['Tree Removal', 'Landscaping', 'Lawn Care', 'Storm Cleanup'].map((item) => (
                 <li key={item}>
                   <a href="#services" className="hover:text-yellow-300 transition-colors">
