@@ -139,7 +139,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Name */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     NAME
                   </label>
                   <input
