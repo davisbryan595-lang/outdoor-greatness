@@ -21,10 +21,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-bebas text-2xl tracking-wider text-yellow-400 mb-2" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+            <h3 className="font-bebas text-lg sm:text-xl md:text-2xl tracking-wider text-yellow-400 mb-2" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
               OUTDOOR GREATNESS
             </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
               Professional landscaping and tree service excellence since day one.
             </p>
           </motion.div>
