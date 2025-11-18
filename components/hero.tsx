@@ -36,9 +36,7 @@ function FloatingSign() {
         />
       </mesh>
       
-      <Text position={[0, 0, 0.2]} fontSize={0.4} color="#FFC107" font="/fonts/Geist_Bold.ttf">
-        OUTDOOR GREATNESS
-      </Text>
+      {/* Text component removed due to missing font file */}
     </group>
   )
 }
