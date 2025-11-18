@@ -129,7 +129,7 @@ export default function Gallery() {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-6"
                   >
-                    <h3 className="font-bebas text-xl tracking-wider text-yellow-400 mb-1">
+                    <h3 className="font-bebas text-xl tracking-wider text-yellow-300 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-gray-300 text-sm">{item.description}</p>
