@@ -160,9 +160,9 @@ export default function Services() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.6 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-center mt-16 pointer-events-none"
+          className="text-center mt-10 sm:mt-12 md:mt-16 pointer-events-none px-4"
         >
-          <p className="text-sm text-yellow-400/50 tracking-widest font-light">
+          <p className="text-xs sm:text-sm text-yellow-400/50 tracking-widest font-light">
             EACH SIGN REPRESENTS A COMMITMENT TO EXCELLENCE IN YOUR OUTDOOR SPACE
           </p>
         </motion.div>
