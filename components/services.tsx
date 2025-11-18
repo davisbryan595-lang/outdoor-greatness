@@ -110,9 +110,9 @@ export default function Services() {
               className="relative group"
             >
               {/* Card Background with 3D depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-green-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative p-8 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-md rounded-2xl border border-yellow-500/20 group-hover:border-yellow-500/50 transition-all duration-500 shadow-3d hover:shadow-3d">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-emerald-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative p-8 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-md rounded-2xl border border-emerald-500/20 group-hover:border-yellow-500/50 transition-all duration-500 shadow-3d hover:shadow-3d">
                 {/* Icon */}
                 <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-500">
                   {service.icon}
