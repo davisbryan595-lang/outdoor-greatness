@@ -91,7 +91,7 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider mb-4">
-            <span className="text-yellow-500">OUR</span> SERVICES
+            <span className="text-yellow-400">OUR</span> <span className="text-green-400">SERVICES</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Comprehensive outdoor excellence from design to maintenance
