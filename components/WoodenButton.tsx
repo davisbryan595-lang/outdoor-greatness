@@ -19,9 +19,9 @@ export default function WoodenButton({
   size = 'md',
 }: WoodenButtonProps) {
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-8 py-4 text-base',
-    lg: 'px-10 py-5 text-lg',
+    sm: 'px-6 py-2.5 text-sm',
+    md: 'px-10 py-4 text-base',
+    lg: 'px-12 py-5 text-lg',
   }
 
   const Component = href ? 'a' : 'button'
@@ -29,92 +29,129 @@ export default function WoodenButton({
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="relative"
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.93 }}
+      className="relative group"
     >
       <Component
         {...props}
         className={`
-          relative rounded-lg font-bebas tracking-widest
+          relative rounded-xl font-bebas tracking-widest
           overflow-hidden group
-          transition-all duration-300
+          transition-all duration-300 ease-out
           ${sizeClasses[size]}
           ${className}
         `}
         style={{
-          background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
+          background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #8B7355 100%)',
           color: '#FFC107',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+          textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8)',
           boxShadow: `
-            0 0 20px rgba(255, 193, 7, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2),
-            inset 0 -2px 0 rgba(0, 0, 0, 0.3)
+            0 10px 30px rgba(139, 90, 43, 0.5),
+            0 0 30px rgba(255, 193, 7, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.4)
           `,
-          border: '2px solid rgba(255, 193, 7, 0.3)',
+          border: '2px solid rgba(255, 193, 7, 0.4)',
         } as React.CSSProperties}
       >
-        {/* Wood texture */}
+        {/* Wood texture overlay */}
         <div
-          className="absolute inset-0 opacity-30 pointer-events-none"
+          className="absolute inset-0 opacity-25 pointer-events-none"
           style={{
             backgroundImage: `
               repeating-linear-gradient(
                 90deg,
-                rgba(0, 0, 0, 0.2) 0px,
-                rgba(0, 0, 0, 0.2) 2px,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 2px,
                 transparent 2px,
-                transparent 4px
+                transparent 5px
+              ),
+              repeating-linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.05) 0px,
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 3px
               )
             `,
           }}
         />
 
-        {/* Glow on hover */}
+        {/* Glow effect on hover */}
         <motion.div
-          className="absolute inset-0 rounded-lg pointer-events-none"
-          initial={{ opacity: 0 }}
+          className="absolute inset-0 rounded-xl pointer-events-none"
+          initial={{ opacity: 0, scale: 1 }}
           whileHover={{
             opacity: 1,
-            boxShadow: '0 0 30px rgba(255, 193, 7, 0.8)',
           }}
           transition={{ duration: 0.3 }}
+          style={{
+            boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.2)',
+          }}
         />
 
-        {/* Leaf particles on hover */}
+        {/* Animated background glow on hover */}
         <motion.div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute -inset-2 rounded-xl pointer-events-none"
           initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-        >
-          {[...Array(6)].map((_, i) => (
+          whileHover={{ opacity: 0.5 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 193, 7, 0.3) 0%, rgba(132, 204, 22, 0.1) 100%)',
+            filter: 'blur(12px)',
+            zIndex: -1,
+          }}
+        />
+
+        {/* Particle effects on hover */}
+        <motion.div className="absolute inset-0 pointer-events-none">
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-yellow-400 rounded-full"
+              className="absolute w-1.5 h-1.5 rounded-full"
               initial={{
                 x: '50%',
                 y: '50%',
-                opacity: 1,
-              }}
-              whileHover={{
-                x: Math.cos((i / 6) * Math.PI * 2) * 30,
-                y: Math.sin((i / 6) * Math.PI * 2) * 30 - 20,
                 opacity: 0,
               }}
-              transition={{ duration: 0.6 }}
+              whileHover={{
+                x: Math.cos((i / 8) * Math.PI * 2) * 40,
+                y: Math.sin((i / 8) * Math.PI * 2) * 40 - 25,
+                opacity: [0, 1, 0],
+              }}
+              transition={{ duration: 0.7 }}
+              style={{
+                background:
+                  i % 2 === 0
+                    ? 'radial-gradient(circle, #84cc16 0%, transparent 70%)'
+                    : 'radial-gradient(circle, #FFC107 0%, transparent 70%)',
+              }}
             />
           ))}
         </motion.div>
 
         {/* Content */}
-        <span className="relative z-10 block">{children}</span>
+        <span className="relative z-10 block font-bold uppercase letter-spacing">{children}</span>
       </Component>
 
-      {/* Shine effect */}
-      <div
-        className="absolute inset-0 rounded-lg pointer-events-none"
+      {/* Enhanced shine effect */}
+      <motion.div
+        className="absolute inset-0 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%)',
+        }}
+      />
+
+      {/* Glow ring effect */}
+      <motion.div
+        className="absolute -inset-1 rounded-xl pointer-events-none"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          border: '1px solid rgba(255, 193, 7, 0.3)',
+          background: 'none',
         }}
       />
     </motion.div>
