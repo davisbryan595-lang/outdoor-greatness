@@ -177,7 +177,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     EMAIL
                   </label>
                   <input
@@ -196,7 +196,7 @@ export default function Contact() {
 
                 {/* Service */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     SERVICE
                   </label>
                   <select
@@ -219,7 +219,7 @@ export default function Contact() {
 
                 {/* Address */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="sm:col-span-2">
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     ADDRESS
                   </label>
                   <input
@@ -237,7 +237,7 @@ export default function Contact() {
 
                 {/* Message */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="sm:col-span-2">
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     MESSAGE
                   </label>
                   <textarea
