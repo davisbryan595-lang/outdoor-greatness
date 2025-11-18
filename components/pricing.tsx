@@ -103,8 +103,8 @@ export default function Pricing() {
               className={`w-full max-w-xs h-full relative ${item.highlight ? 'lg:scale-105 xl:scale-110' : ''}`}
             >
               {/* Rope hanging from top */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1 h-6 bg-yellow-800 opacity-60" />
-              <div className="absolute -top-6 left-1/2 transform -translate-x-3 w-0.5 h-6 bg-yellow-700 opacity-50" />
+              <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2 w-1 h-4 sm:h-6 bg-yellow-800 opacity-60" />
+              <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-3 w-0.5 h-4 sm:h-6 bg-yellow-700 opacity-50" />
 
               {/* Wooden Price Tag */}
               <motion.div
@@ -113,7 +113,7 @@ export default function Pricing() {
                   y: -10,
                   boxShadow: '0 0 40px rgba(255, 193, 7, 0.6)',
                 }}
-                className="relative p-8 rounded-lg text-center"
+                className="relative p-6 sm:p-8 rounded-lg text-center"
                 style={{
                   background: item.highlight
                     ? 'linear-gradient(135deg, #FFC107 0%, #FFD700 50%, #FFA500 100%)'
