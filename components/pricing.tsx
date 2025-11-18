@@ -88,7 +88,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Pricing Cards - Wooden Tags */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 place-items-center">
           {pricingData.map((item, index) => (
             <motion.div
               key={index}
