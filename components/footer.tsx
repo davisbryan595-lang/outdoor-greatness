@@ -55,10 +55,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-bebas text-lg tracking-wider text-yellow-400 mb-4" style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)' }}>
+            <h4 className="font-bebas text-base sm:text-lg tracking-wider text-yellow-400 mb-3 sm:mb-4" style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)' }}>
               CONTACT
             </h4>
-            <div className="space-y-2 text-gray-300 text-sm">
+            <div className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
               <p>
                 <a href="tel:781-732-8301" className="hover:text-yellow-300 transition-colors font-semibold">
                   📞 781-732-8301
