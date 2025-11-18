@@ -220,12 +220,12 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 2, delay: 3 }}
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center pointer-events-none"
+        className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-1/2 transform -translate-x-1/2 text-center pointer-events-none px-4"
       >
         <motion.p
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="text-xs md:text-sm text-yellow-300/70 tracking-widest font-light"
+          className="text-xs sm:text-sm text-yellow-300/70 tracking-widest font-light"
         >
           ↓ SCROLL TO EXPLORE THE FOREST ↓
         </motion.p>
