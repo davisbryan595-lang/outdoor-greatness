@@ -5,6 +5,19 @@ import { Canvas, useThree } from '@react-three/fiber'
 import { Stars, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
+function FogComponent() {
+  const { scene } = useThree()
+
+  useEffect(() => {
+    scene.fog = new THREE.Fog('#0f1419', 30, 100)
+    return () => {
+      scene.fog = null
+    }
+  }, [scene])
+
+  return null
+}
+
 function ParticleField() {
   const groupRef = useRef<THREE.Group>(null)
   const pointsRef = useRef<THREE.Points>(null)
