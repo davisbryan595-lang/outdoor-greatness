@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 px-4 overflow-hidden border-t border-yellow-700/20">
+    <footer className="relative py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8 overflow-hidden border-t border-yellow-700/20">
       {/* Background effect - part of forest */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 pointer-events-none z-0" />
 
@@ -14,7 +14,7 @@ export default function Footer() {
         transition={{ duration: 0.8 }}
         className="relative z-10 max-w-7xl mx-auto"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
