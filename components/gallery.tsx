@@ -106,23 +106,55 @@ export default function Gallery() {
             <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 font-bebas tracking-widest rounded-lg transition-all ${
-                activeFilter === filter
-                  ? 'text-black shadow-lg'
-                  : 'text-yellow-400 border border-yellow-500/40'
-              }`}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              className={`relative px-7 py-3 font-bebas tracking-widest rounded-full transition-all duration-300 overflow-hidden group`}
               style={
                 activeFilter === filter
                   ? {
                       background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
-                      boxShadow: '0 0 30px rgba(255, 193, 7, 0.5)',
+                      boxShadow: '0 8px 25px rgba(255, 193, 7, 0.6), 0 0 20px rgba(132, 204, 22, 0.3)',
+                      color: '#1a1a1a',
+                      textShadow: 'none',
+                      border: '2px solid rgba(255, 255, 255, 0.3)',
                     }
-                  : {}
+                  : {
+                      background: 'rgba(0, 0, 0, 0.3)',
+                      border: '2px solid rgba(255, 193, 7, 0.5)',
+                      color: '#FCD34D',
+                      boxShadow: '0 0 15px rgba(255, 193, 7, 0.2)',
+                    }
               }
             >
-              {filter}
+              {/* Hover glow effect */}
+              <motion.div
+                className="absolute -inset-1 rounded-full pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  background: activeFilter === filter
+                    ? 'none'
+                    : 'linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(132, 204, 22, 0.1) 100%)',
+                  filter: 'blur(8px)',
+                  zIndex: -1,
+                }}
+              />
+
+              {/* Shine effect on active */}
+              {activeFilter === filter && (
+                <motion.div
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: [0, 0.5, 0], x: 100 }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
+                  }}
+                />
+              )}
+
+              <span className="relative z-10 block font-bold text-sm uppercase">{filter}</span>
             </motion.button>
           ))}
         </motion.div>
