@@ -106,14 +106,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-bebas text-6xl md:text-8xl tracking-wider mb-4"
+          className="font-bebas text-6xl md:text-8xl tracking-wider mb-4 text-white"
           style={{
-            backgroundImage: 'linear-gradient(to right, #FFC107, #FFD54F)',
+            backgroundImage: 'linear-gradient(to right, #84cc16, #fbbf24)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 60px rgba(255, 193, 7, 0.3)',
-            filter: 'drop-shadow(0 0 30px rgba(255, 193, 7, 0.2))',
+            textShadow: '0 0 60px rgba(132, 204, 22, 0.3)',
+            filter: 'drop-shadow(0 0 30px rgba(132, 204, 22, 0.2))',
           }}
         >
           OUTDOOR GREATNESS
