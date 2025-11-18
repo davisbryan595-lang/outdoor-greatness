@@ -71,46 +71,60 @@ export default function ForestAmbience() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <motion.button
-            onClick={handleToggle}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative flex items-center justify-center w-14 h-14 rounded-full transition-all"
-            style={{
-              background: isPlaying
-                ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
-                : 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
-              boxShadow: isPlaying
-                ? '0 0 40px rgba(132, 204, 22, 0.6)'
-                : '0 0 30px rgba(139, 90, 43, 0.5)',
-              border: '2px solid rgba(255, 193, 7, 0.3)',
-            }}
+          <motion.div
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
           >
-            {/* Icon */}
-            <span className="text-xl">{isPlaying ? '🔊' : '🔇'}</span>
+            <motion.button
+              onClick={handleToggle}
+              className="relative flex items-center justify-center w-16 h-16 rounded-full transition-all overflow-hidden group"
+              style={{
+                background: isPlaying
+                  ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
+                  : 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
+                boxShadow: isPlaying
+                  ? '0 10px 35px rgba(132, 204, 22, 0.7), 0 0 25px rgba(132, 204, 22, 0.4)'
+                  : '0 10px 30px rgba(139, 90, 43, 0.6), 0 0 20px rgba(255, 193, 7, 0.3)',
+                border: '2px solid rgba(255, 193, 7, 0.4)',
+              }}
+            >
+              {/* Glow effect */}
+              <motion.div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  boxShadow: 'inset 0 0 20px rgba(255, 255, 255, 0.2)',
+                }}
+              />
 
-            {/* Pulsing ring when playing */}
-            {isPlaying && (
-              <>
-                <motion.div
-                  animate={{ scale: [1, 1.3], opacity: [1, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    border: '2px solid rgba(132, 204, 22, 0.5)',
-                  }}
-                />
-                <motion.div
-                  animate={{ scale: [1, 1.6], opacity: [1, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    border: '2px solid rgba(132, 204, 22, 0.3)',
-                  }}
-                />
-              </>
-            )}
-          </motion.button>
+              {/* Icon */}
+              <span className="text-2xl relative z-10">{isPlaying ? '🔊' : '🔇'}</span>
+
+              {/* Pulsing rings when playing */}
+              {isPlaying && (
+                <>
+                  <motion.div
+                    animate={{ scale: [1, 1.4], opacity: [0.8, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      border: '2px solid rgba(132, 204, 22, 0.6)',
+                    }}
+                  />
+                  <motion.div
+                    animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      border: '2px solid rgba(132, 204, 22, 0.3)',
+                    }}
+                  />
+                </>
+              )}
+            </motion.button>
+          </motion.div>
 
           {/* Tooltip */}
           <motion.div

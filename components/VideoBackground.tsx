@@ -37,7 +37,7 @@ export default function VideoBackground() {
         perspective: '1000px',
       }}
     >
-      {/* Video Background - Golden Hour Forest (4K Quality) */}
+      {/* Video Background - HD Outdoor Landscape */}
       <video
         ref={videoRef}
         autoPlay
@@ -49,19 +49,14 @@ export default function VideoBackground() {
           transition: 'transform 0.1s ease-out',
         }}
       >
-        {/* Primary: Ultra-HD 4K golden hour forest with god rays and gentle breeze */}
+        {/* Primary: HD outdoor garden and landscaping */}
         <source
-          src="https://videos.pexels.com/video-files/6056826/6056826-uhd_2560_1440_24fps.mp4"
+          src="https://videos.pexels.com/video-files/4235131/4235131-hd_1280_720_25fps.mp4"
           type="video/mp4"
         />
-        {/* Fallback: Alternative 4K golden hour forest */}
+        {/* Fallback: Landscaping and outdoor nature */}
         <source
-          src="https://videos.pexels.com/video-files/31049844/31049844-uhd_2560_1440_24fps.mp4"
-          type="video/mp4"
-        />
-        {/* Secondary fallback: Original HD */}
-        <source
-          src="https://videos.pexels.com/video-files/2022278/2022278-hd_1280_720_24fps.mp4"
+          src="https://videos.pexels.com/video-files/1494304/1494304-hd_1920_1080_24fps.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.

@@ -7,44 +7,44 @@ const galleryItems = [
   {
     id: 1,
     category: 'Trees',
-    title: 'Mature Oak Removal',
-    description: 'Professional removal of 80-year-old oak tree',
-    image: 'https://images.unsplash.com/photo-1505820692951-75cc615ce59f?w=800&h=600&fit=crop',
+    title: 'Beautiful Tree and Foliage Work',
+    description: 'Professional tree care and landscaping services',
+    image: 'https://images.pexels.com/photos/34777724/pexels-photo-34777724.jpeg',
   },
   {
     id: 2,
     category: 'Landscapes',
     title: 'Modern Garden Design',
-    description: 'Contemporary landscape with hardscaping',
-    image: 'https://images.unsplash.com/photo-1629496095057-8c82eb62a80a?w=800&h=600&fit=crop',
+    description: 'Vibrant outdoor garden transformation',
+    image: 'https://images.pexels.com/photos/34753426/pexels-photo-34753426.jpeg',
   },
   {
     id: 3,
     category: 'Before-After',
-    title: 'Transformation',
-    description: 'Complete yard renovation project',
-    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop',
+    title: 'Hardscape Transformation',
+    description: 'Professional hardscape installation project',
+    image: 'https://images.pexels.com/photos/16690918/pexels-photo-16690918.jpeg',
   },
   {
     id: 4,
     category: 'Trees',
-    title: 'Crown Pruning',
-    description: 'Precision pruning for health and aesthetics',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
+    title: 'Garden Landscaping',
+    description: 'Expert flower and plant arrangement work',
+    image: 'https://images.pexels.com/photos/34776639/pexels-photo-34776639.jpeg',
   },
   {
     id: 5,
     category: 'Landscapes',
-    title: 'Hardscape Installation',
-    description: 'Paver patio with garden borders',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+    title: 'Patio Installation',
+    description: 'Herringbone brick patterned patio',
+    image: 'https://images.pexels.com/photos/17366766/pexels-photo-17366766.jpeg',
   },
   {
     id: 6,
     category: 'Before-After',
-    title: 'Storm Recovery',
-    description: 'Post-storm cleanup and restoration',
-    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop',
+    title: 'Professional Landscaping Work',
+    description: 'Complete yard and garden renovation',
+    image: 'https://images.pexels.com/photos/5644613/pexels-photo-5644613.jpeg',
   },
 ]
 
@@ -106,23 +106,55 @@ export default function Gallery() {
             <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 font-bebas tracking-widest rounded-lg transition-all ${
-                activeFilter === filter
-                  ? 'text-black shadow-lg'
-                  : 'text-yellow-400 border border-yellow-500/40'
-              }`}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              className={`relative px-7 py-3 font-bebas tracking-widest rounded-full transition-all duration-300 overflow-hidden group`}
               style={
                 activeFilter === filter
                   ? {
                       background: 'linear-gradient(135deg, #FFC107 0%, #84cc16 100%)',
-                      boxShadow: '0 0 30px rgba(255, 193, 7, 0.5)',
+                      boxShadow: '0 8px 25px rgba(255, 193, 7, 0.6), 0 0 20px rgba(132, 204, 22, 0.3)',
+                      color: '#1a1a1a',
+                      textShadow: 'none',
+                      border: '2px solid rgba(255, 255, 255, 0.3)',
                     }
-                  : {}
+                  : {
+                      background: 'rgba(0, 0, 0, 0.3)',
+                      border: '2px solid rgba(255, 193, 7, 0.5)',
+                      color: '#FCD34D',
+                      boxShadow: '0 0 15px rgba(255, 193, 7, 0.2)',
+                    }
               }
             >
-              {filter}
+              {/* Hover glow effect */}
+              <motion.div
+                className="absolute -inset-1 rounded-full pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  background: activeFilter === filter
+                    ? 'none'
+                    : 'linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(132, 204, 22, 0.1) 100%)',
+                  filter: 'blur(8px)',
+                  zIndex: -1,
+                }}
+              />
+
+              {/* Shine effect on active */}
+              {activeFilter === filter && (
+                <motion.div
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: [0, 0.5, 0], x: 100 }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
+                  }}
+                />
+              )}
+
+              <span className="relative z-10 block font-bold text-sm uppercase">{filter}</span>
             </motion.button>
           ))}
         </motion.div>
@@ -248,12 +280,26 @@ export default function Gallery() {
 
                 {/* Close button */}
                 <motion.button
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setSelectedId(null)}
-                  className="absolute -top-4 -right-4 w-10 h-10 bg-yellow-500 rounded-full text-black font-bold flex items-center justify-center shadow-lg"
+                  className="absolute -top-5 -right-5 w-12 h-12 rounded-full text-white font-bold flex items-center justify-center shadow-2xl overflow-hidden group relative"
+                  style={{
+                    background: 'linear-gradient(135deg, #FFC107 0%, #FFD700 100%)',
+                    boxShadow: '0 8px 20px rgba(255, 193, 7, 0.6)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                  }}
                 >
-                  ✕
+                  {/* Glow effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    style={{
+                      boxShadow: 'inset 0 0 15px rgba(255, 255, 255, 0.3)',
+                    }}
+                  />
+                  <span className="relative z-10 text-xl">✕</span>
                 </motion.button>
               </div>
             </motion.div>

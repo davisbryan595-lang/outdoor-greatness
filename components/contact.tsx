@@ -261,22 +261,41 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-yellow-600/40"
               >
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 py-4 rounded-lg font-bebas tracking-widest text-lg transition-all"
-                  style={{
-                    background: submitted
-                      ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
-                      : 'linear-gradient(135deg, #FFC107 0%, #FFD700 100%)',
-                    color: '#000',
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-                    boxShadow: '0 0 20px rgba(255, 193, 7, 0.4)',
-                  }}
+                <motion.div
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  className="flex-1"
                 >
-                  {submitted ? '✓ SENT! THANK YOU!' : '📧 SEND REQUEST'}
-                </motion.button>
+                  <motion.button
+                    type="submit"
+                    className="w-full py-4 rounded-xl font-bebas tracking-widest text-lg transition-all overflow-hidden relative group"
+                    style={{
+                      background: submitted
+                        ? 'linear-gradient(135deg, #84cc16 0%, #65a30d 100%)'
+                        : 'linear-gradient(135deg, #FFC107 0%, #FFD700 100%)',
+                      color: '#000',
+                      textShadow: submitted ? 'none' : '0 1px 3px rgba(0, 0, 0, 0.4)',
+                      boxShadow: submitted
+                        ? '0 10px 30px rgba(132, 204, 22, 0.5), 0 0 20px rgba(132, 204, 22, 0.3)'
+                        : '0 10px 30px rgba(255, 193, 7, 0.5), 0 0 20px rgba(255, 193, 7, 0.3)',
+                      border: '2px solid rgba(255, 255, 255, 0.3)',
+                    }}
+                  >
+                    {/* Shine effect */}
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      initial={{ opacity: 0, x: -100 }}
+                      whileHover={{ opacity: [0, 0.4, 0], x: 100 }}
+                      transition={{ duration: 1 }}
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
+                      }}
+                    />
+                    <span className="relative z-10 block font-bold uppercase">
+                      {submitted ? '✓ SENT! THANK YOU!' : '📧 SEND REQUEST'}
+                    </span>
+                  </motion.button>
+                </motion.div>
 
                 <WoodenButton href="tel:781-732-8301" size="lg">
                   ☎️ CALL NOW
