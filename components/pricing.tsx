@@ -82,7 +82,7 @@ export default function Pricing() {
           >
             PRICING TAGS
           </h2>
-          <p className="text-gray-300 text-lg tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 tracking-wide" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Hanging from the branches - transparent pricing
           </p>
         </motion.div>
