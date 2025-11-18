@@ -158,7 +158,7 @@ export default function Contact() {
 
                 {/* Phone */}
                 <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-                  <label className="block font-bebas tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+                  <label className="block font-bebas text-sm tracking-widest mb-2" style={{ color: '#FFC107', textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                     PHONE
                   </label>
                   <input
