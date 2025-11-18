@@ -100,7 +100,7 @@ export default function Pricing() {
                 type: 'spring',
                 stiffness: 100,
               }}
-              className={`w-full max-w-xs relative ${item.highlight ? 'lg:scale-110' : ''}`}
+              className={`w-full max-w-xs h-full relative ${item.highlight ? 'lg:scale-105 xl:scale-110' : ''}`}
             >
               {/* Rope hanging from top */}
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1 h-6 bg-yellow-800 opacity-60" />
