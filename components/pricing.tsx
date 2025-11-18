@@ -90,13 +90,13 @@ export default function Pricing() {
               >
 
                 {/* Title */}
-                <h3 className="font-bebas text-2xl tracking-wider text-yellow-400 mb-2">
+                <h3 className="font-bebas text-2xl tracking-wider text-green-300 mb-2">
                   {item.title}
                 </h3>
 
                 {/* Price */}
                 <motion.div
-                  className="text-4xl font-bebas tracking-wider text-yellow-500 mb-6"
+                  className="text-4xl font-bebas tracking-wider text-yellow-400 mb-6"
                 >
                   {item.price}
                 </motion.div>
