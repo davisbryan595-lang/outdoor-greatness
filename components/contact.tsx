@@ -303,7 +303,7 @@ export default function Contact() {
               </motion.div>
 
               {/* Decorative text */}
-              <p className="text-center text-xs text-gray-200 mt-4" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
+              <p className="text-center text-xs sm:text-xs text-gray-200 mt-3 sm:mt-4 px-2" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)' }}>
                 Phone: 781-732-8301 • Available 24/7 for emergencies
               </p>
             </form>
