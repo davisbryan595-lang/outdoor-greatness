@@ -182,11 +182,11 @@ export default function Pricing() {
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-6 text-xs">
+                  <ul className="space-y-2 mb-4 sm:mb-6 text-xs sm:text-sm">
                     {item.features.map((feature, fIndex) => (
                       <li
                         key={fIndex}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 text-left"
                         style={{
                           color: item.highlight ? '#000' : '#E8D4A0',
                           textShadow: item.highlight ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.3)',
