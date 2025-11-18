@@ -12,8 +12,8 @@ export default function ForestAmbience() {
   useEffect(() => {
     // Create audio element for forest breeze ambience
     const audioElement = new Audio()
-    // High-quality forest wind/breeze with ruffling leaves from freesound
-    audioElement.src = 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_1aebbd66d3.mp3'
+    // Forest light wind breeze with ruffling leaves
+    audioElement.src = 'https://deadsounds.com/get/2682/mp3'
     audioElement.loop = true
     audioElement.volume = 0.3
     audioRef.current = audioElement
