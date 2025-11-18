@@ -77,7 +77,7 @@ export default function Services() {
             OUR SERVICES
           </h2>
           <p
-            className="text-gray-300 text-lg max-w-2xl mx-auto tracking-wide"
+            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto tracking-wide"
             style={{
               textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
             }}
@@ -89,7 +89,7 @@ export default function Services() {
         {/* Services Grid - Wooden Signs */}
         <div
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center relative"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 place-items-center relative"
         >
           {serviceData.map((service, index) => (
             <motion.div
