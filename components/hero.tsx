@@ -128,13 +128,13 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.5, type: 'spring' }}
-          className="relative inline-block"
+          className="relative inline-block w-full sm:w-auto px-3 sm:px-0"
         >
           <motion.a
             href="tel:781-732-8301"
-            whileHover={{ scale: 1.1, rotateY: 10 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative flex items-center gap-3 px-8 py-4 rounded-full font-bebas tracking-widest text-lg"
+            className="relative flex items-center justify-center sm:justify-start gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 rounded-full font-bebas tracking-widest text-sm sm:text-base md:text-lg"
             style={{
               background: 'linear-gradient(135deg, #8B5A2B 0%, #A0714F 50%, #6B4423 100%)',
               color: '#FFD700',
